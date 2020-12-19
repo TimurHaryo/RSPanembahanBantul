@@ -5,7 +5,6 @@ require 'connection.php';
 
 if (isset($_POST["daftar"]))
 {
-    // $in = $_POST["IN"];
     $norm = $_POST["NoRM"];
     $select_norm = mysqli_query($koneksi->connect, "SELECT * FROM booking WHERE id_patient = '$norm'"); 
     $cek_norm = mysqli_query($koneksi->connect, "SELECT * FROM patient WHERE id_patient = '$norm'");
@@ -15,17 +14,16 @@ if (isset($_POST["daftar"]))
         if (mysqli_num_rows($select_norm) === 1)
         {
             $_SESSION["boking"] = true;
+            $_SESSION["norm"] = $norm;
 
-            header("location:dashboard.php");
+            header("location:konfirmasi.php");
             exit;
         } else {
-            header("location:konfirmasi.php");
+            header("location:basicdata.php");
         }
     } else {
         $error = true;
-    }
-
-    
+    }    
 }
 
 ?>
