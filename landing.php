@@ -14,11 +14,11 @@ if (isset($_POST["daftar"]))
         if (mysqli_num_rows($select_norm) === 1)
         {
             $_SESSION["boking"] = true;
-            $_SESSION["norm"] = $norm;
 
             header("location:konfirmasi.php");
             exit;
         } else {
+            $_SESSION["norm"] = $norm;
             header("location:basicdata.php");
         }
     } else {
