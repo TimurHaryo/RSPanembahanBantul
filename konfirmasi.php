@@ -1,19 +1,20 @@
 <?php
 session_start();
 include_once("connection.php");
-$id_patient ="1234";
-$name_patient ="Mark Zurk";
-$identity_number ="123456778";
-$address_patient ="Kebayoran";
-$tgl_lahir ="19-08-2001";
+
+$kode = '000002-2020';
+$query =  "SELECT * FROM patient where id_patient='$kode'";
+$result = mysqli_query($koneksi->connect, $query);
+$row = mysqli_fetch_array($result);
+$id = $row['id_patient'];
+$name = $row['name_patient'];
+$tgl_lahir = $row['tgl_lahir'];
+$idnum = $row['identity_number'];
+$address = $row['address_patient'];
+
 $policlinic = "Klinik Nuklir";
 $doctor = "dr. Timur, S.Pd";
 $time = "08.00";
-$_SESSION['id_patient'] = "$id_patient";
-$_SESSION['name_patient'] = "$name_patient";
-$_SESSION['identity_number'] = "$identity_number";
-$_SESSION['address_patient'] = "$address_patient";
-$_SESSION['tgl_lahir'] = "$tgl_lahir";
 $_SESSION['policlinic'] = "$policlinic";
 $_SESSION['doctor'] = "$doctor";
 $_SESSION['time'] = "$time";
@@ -72,7 +73,7 @@ $_SESSION['time'] = "$time";
                                         <tr>
                                             <td style="border: 0px;color: rgb(72,72,72);">Name</td>
                                             <td class="text-right" style="height: 29px;width: 0px;color: rgb(72,72,72);">:</td>
-                                            <td><?php echo $_SESSION["name_patient"] ?></td>
+                                            <td><?php echo $name ?></td>
                                             <td style="color: rgb(72,72,72);">Policlinic</td>
                                             <td class="text-right" style="color: rgb(72,72,72);">:</td>
                                             <td><?php echo $_SESSION["policlinic"] ?></td>
@@ -80,7 +81,7 @@ $_SESSION['time'] = "$time";
                                         <tr>
                                             <td style="color: rgb(72,72,72);">Medical Number</td>
                                             <td class="text-right" style="color: rgb(72,72,72);">:</td>
-                                            <td><?php echo $_SESSION["id_patient"] ?></td>
+                                            <td><?php echo $id ?></td>
                                             <td style="color: rgb(72,72,72);">Doctor</td>
                                             <td class="text-right" style="color: rgb(72,72,72);">:</td>
                                             <td><?php echo $_SESSION["doctor"] ?></td>
@@ -88,7 +89,7 @@ $_SESSION['time'] = "$time";
                                         <tr>
                                             <td style="color: rgb(72,72,72);">NIK</td>
                                             <td class="text-right" style="color: rgb(72,72,72);">:</td>
-                                            <td><?php echo $_SESSION["identity_number"] ?></td>
+                                            <td><?php echo $idnum ?></td>
                                             <td style="color: rgb(72,72,72);">Time</td>
                                             <td class="text-right" style="color: rgb(72,72,72);">:</td>
                                             <td><?php echo $_SESSION["time"] ?></td>
@@ -96,12 +97,12 @@ $_SESSION['time'] = "$time";
                                         <tr>
                                             <td style="color: rgb(72,72,72);">Birth Date</td>
                                             <td class="text-right" style="color: rgb(72,72,72);">:</td>
-                                            <td><?php echo $_SESSION["tgl_lahir"] ?></td>
+                                            <td><?php echo $tgl_lahir ?></td>
                                         </tr>
                                         <tr>
                                             <td style="color: rgb(72,72,72);">Address</td>
                                             <td class="text-right" style="color: rgb(72,72,72);">:</td>
-                                            <td><?php echo $_SESSION["address_patient"] ?></td>
+                                            <td><?php echo $address ?></td>
                                         </tr>
                                         <tr>
                                             <td style="color: rgb(72,72,72);">Insurance</td>

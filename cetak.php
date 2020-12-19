@@ -1,8 +1,13 @@
 <?php
 session_start();
 include_once("connection.php");
+
+
+$_SESSION['policlinic'];
+$_SESSION['doctor'];
+$_SESSION['time'];
 //$result = mysqli_query($mysqli, "INSERT INTO patient (id_patient,name_patient,address_patient,jenis_kelain,identity_number,tempat_lahir,adult) VALUES('$kode','$nama','$kota','$negara')");
-//$result = mysqli_query($mysqli, "INSERT INTO booking (id_patient,name_patient,address_patient,jenis_kelain,identity_number,tempat_lahir,adult) VALUES('$kode','$nama','$kota','$negara')");
+$result = mysqli_query($mysqli, "INSERT INTO booking (id_booking,id_patient,id_clinic_scheduling) VALUES('$kode','$nama','$kota','$negara')");
 ?>
 <!DOCTYPE html>
 <html>
@@ -54,10 +59,11 @@ include_once("connection.php");
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col text-center"><label class="col-form-label text-center" style="font-size: 22px;">name_policlinic</label></div>
+                        <div class="col text-center"><label class="col-form-label text-center" style="font-size: 22px;"><?php echo $_SESSION['policlinic']; ?></label></div>
                     </div>
                     <div class="row">
-                        <div class="col text-center"><label>name_doctor</label>
+                        <div class="col text-center"><label><?php echo $_SESSION['doctor']; ?></label><br>
+                        <label><?php echo $_SESSION['time']; ?></label>
                             <div class="row">
                                 <div class="col"><label style="font-size: 90px;">21</label>
                                     <div class="row">
