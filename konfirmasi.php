@@ -1,3 +1,23 @@
+<?php
+session_start();
+include_once("connection.php");
+$id_patient ="1234";
+$name_patient ="Mark Zurk";
+$identity_number ="123456778";
+$address_patient ="Kebayoran";
+$tgl_lahir ="19-08-2001";
+$policlinic = "Klinik Nuklir";
+$doctor = "dr. Timur, S.Pd";
+$time = "08.00";
+$_SESSION['id_patient'] = "$id_patient";
+$_SESSION['name_patient'] = "$name_patient";
+$_SESSION['identity_number'] = "$identity_number";
+$_SESSION['address_patient'] = "$address_patient";
+$_SESSION['tgl_lahir'] = "$tgl_lahir";
+$_SESSION['policlinic'] = "$policlinic";
+$_SESSION['doctor'] = "$doctor";
+$_SESSION['time'] = "$time";
+?>
 <!DOCTYPE html>
 <html>
 
@@ -52,36 +72,36 @@
                                         <tr>
                                             <td style="border: 0px;color: rgb(72,72,72);">Name</td>
                                             <td class="text-right" style="height: 29px;width: 0px;color: rgb(72,72,72);">:</td>
-                                            <td>name_patient</td>
+                                            <td><?php echo $_SESSION["name_patient"] ?></td>
                                             <td style="color: rgb(72,72,72);">Policlinic</td>
                                             <td class="text-right" style="color: rgb(72,72,72);">:</td>
-                                            <td>name_policlinic</td>
+                                            <td><?php echo $_SESSION["policlinic"] ?></td>
                                         </tr>
                                         <tr>
                                             <td style="color: rgb(72,72,72);">Medical Number</td>
                                             <td class="text-right" style="color: rgb(72,72,72);">:</td>
-                                            <td>id_patient</td>
+                                            <td><?php echo $_SESSION["id_patient"] ?></td>
                                             <td style="color: rgb(72,72,72);">Doctor</td>
                                             <td class="text-right" style="color: rgb(72,72,72);">:</td>
-                                            <td>name_doctor</td>
+                                            <td><?php echo $_SESSION["doctor"] ?></td>
                                         </tr>
                                         <tr>
                                             <td style="color: rgb(72,72,72);">NIK</td>
                                             <td class="text-right" style="color: rgb(72,72,72);">:</td>
-                                            <td>nik</td>
+                                            <td><?php echo $_SESSION["identity_number"] ?></td>
                                             <td style="color: rgb(72,72,72);">Time</td>
                                             <td class="text-right" style="color: rgb(72,72,72);">:</td>
-                                            <td>time</td>
+                                            <td><?php echo $_SESSION["time"] ?></td>
                                         </tr>
                                         <tr>
                                             <td style="color: rgb(72,72,72);">Birth Date</td>
                                             <td class="text-right" style="color: rgb(72,72,72);">:</td>
-                                            <td>tgl_lahir</td>
+                                            <td><?php echo $_SESSION["tgl_lahir"] ?></td>
                                         </tr>
                                         <tr>
                                             <td style="color: rgb(72,72,72);">Address</td>
                                             <td class="text-right" style="color: rgb(72,72,72);">:</td>
-                                            <td>address_patient</td>
+                                            <td><?php echo $_SESSION["address_patient"] ?></td>
                                         </tr>
                                         <tr>
                                             <td style="color: rgb(72,72,72);">Insurance</td>
@@ -91,7 +111,7 @@
                                         <tr>
                                             <td style="color: rgb(72,72,72);">Number</td>
                                             <td class="text-right" style="color: rgb(72,72,72);">:</td>
-                                            <td>nomer apa?</td>
+                                            <td>nomer bpjs</td>
                                         </tr>
                                     </tbody>
                                 </table>

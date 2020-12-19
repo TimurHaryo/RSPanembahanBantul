@@ -1,3 +1,9 @@
+<?php
+session_start();
+include_once("connection.php");
+//$result = mysqli_query($mysqli, "INSERT INTO patient (id_patient,name_patient,address_patient,jenis_kelain,identity_number,tempat_lahir,adult) VALUES('$kode','$nama','$kota','$negara')");
+//$result = mysqli_query($mysqli, "INSERT INTO booking (id_patient,name_patient,address_patient,jenis_kelain,identity_number,tempat_lahir,adult) VALUES('$kode','$nama','$kota','$negara')");
+?>
 <!DOCTYPE html>
 <html>
 
