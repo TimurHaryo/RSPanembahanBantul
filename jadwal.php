@@ -45,77 +45,57 @@
                     <div class="row" style="padding-right: 24px; padding-left: 24px;">
 
                         <div class="col-lg-6">
-                            <div class="container">
-                                <div class="row">
-                                    <td style="border: 0px;color: rgb(94, 94, 94);">Select Date</p>
-                                    </td>
-                                </div>
-                                <div class="row">
-                                    <div id="date-picker-example" class="md-form md-outline input-with-post-icon datepicker">
-                                        <input placeholder="Select date" type="text" id="example" class="form-control" style="width: 200px;">
-                                        <i class="fas fa-calendar input-prefix" tabindex=0></i>
+                            <td style="border:none; color: rgb(72,72,72);">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroup-sizing-default">Tanggal : <?php echo " \n  " . date(" \n d  M  Y") . " \n  "; ?></span>
                                     </div>
-                                </div>
-                            </div>
+                            </td>
+                            
                             <br>
                             <?php include("connection.php");
                             ?>
-                            <div class="form-group" style="min-width: 300px; max-width: 450px;">
-                                <label for="sel1">Poliklinik</label>
-                                <select class="form-control" id="sel1" style="height:auto; max-height: 50px;">
-                                    <option disabled selected> Pilih Poliklinik </option>
-                                    <?php                                    
-                                    $query_get_clinic = "SELECT * FROM clinic";
-                                    $result_clinic = mysqli_query($koneksi->connect, $query_get_clinic);
-                                    if ($result_clinic->num_rows > 0) {
-                                        while ($row = mysqli_fetch_assoc($result_clinic)) {
-                                            echo "<option value='" . $row['name_clinic'] . "'>Poliklinik " . $row['name_clinic'] . "</option>";
-                                        }
-                                    }
-                                    mysqli_close($koneksi->connect);
-                                    ?>
-                                </select>
-                            </div>
-                            <div class="form-group" style="min-width: 300px; max-width: 450px;">
-                                <label for="sel1">Dokter</label>
-                                <select class="form-control" id="sel2" >
-                                    <option disabled selected> Pilih Dokter </option>
-                                    <?php
-                                    $query_get_doctor = "SELECT DISTINCT doctor.name_doctor
-                                    FROM doctor
-                                    JOIN clinic_schedule
-                                    ON doctor.id_doctor = clinic_schedule.id_doctor
-                                    WHERE clinic_schedule.id_clinic = 13";
-                                    $result_doctor = mysqli_query($koneksi->connect, $query_get_doctor);
-                                    if ($result_doctor->num_rows > 0) {
-                                        while ($row = mysqli_fetch_assoc($result_doctor)) {
-                                            echo "<option value='" . $row['name_doctor'] . "'>Dokter " . $row['name_doctor'] . "</option>";
-                                        }
-                                    }
-                                    mysqli_close($koneksi->connect);
-                                    ?>
-                                </select>
-                            </div>
-                            <div class="form-group" style="min-width: 300px; max-width: 450px;">
-                                <label for="sel1">Jam Praktek</label>
-                                <select class="form-control" id="sel1">
-                                    <option disabled selected> Pilih Jam </option>
-                                    <?php
-                                    $query_get_clinic = "SELECT DISTINCT doctor.name_doctor
-                                    FROM doctor
-                                    JOIN clinic_schedule
-                                    ON doctor.id_doctor = clinic_schedule.id_doctor
-                                    WHERE clinic_schedule.id_clinic = 13";
-                                    $result_clinic = mysqli_query($koneksi->connect, $query_get_clinic);
-                                    if ($result_clinic->num_rows > 0) {
-                                        while ($row = mysqli_fetch_assoc($result_clinic)) {
-                                            echo "<option value='" . $row['name_clinic'] . "'>Pukul " . $row['name_clinic'] . "</option>";
-                                        }
-                                    }
-                                    mysqli_close($koneksi->connect);
-                                    ?>
-                                </select>
-                            </div>
+                            <tr>
+                                <td style="border: 0px;color: rgb(72,72,72); min-width:150px; max-width:300px;">
+                                    <div class="form-group">
+                                        <label for="clinic">Clinic Destination</label>
+                                        <select class="form-control" id="clinic">
+                                            <option disabled selected> Pilih </option>
+                                            <?php
+                                            $query_get_clinic = "SELECT * FROM clinic";
+                                            $result_clinic = mysqli_query($koneksi->connect, $query_get_clinic);
+                                            if ($result_clinic->num_rows > 0) {
+                                                while ($row = mysqli_fetch_assoc($result_clinic)) {
+                                                    echo "<option value='" . $row['id_clinic'] . "'>Poliklinik " . $row['name_clinic'] . "</option>";
+                                                }
+                                            }
+                                            mysqli_close($koneksi->connect);
+                                            ?>
+                                        </select>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td style="border: 0px;color: rgb(72,72,72); min-width:150px; max-width:300px;">
+                                    <div class="form-group">
+                                        <label for="doctor">Doctor</label>
+                                        <select class="form-control" id="doctor">
+                                            <option disabled selected> Pilih Dokter </option>
+                                        </select>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td style="border: 0px;color: rgb(72,72,72); min-width:150px; max-width:250px;">
+                                    <div class="form-group">
+                                        <label for="sel1">Time</label>
+                                        <select class="form-control" id="scheduleTime">
+                                            <option disabled selected> Pilih Waktu </option>
+                                        </select>
+                                    </div>
+                                </td>
+                            </tr>
                         </div>
 
                         <div class="col-lg-6">
@@ -123,42 +103,14 @@
                             <table class="table table-responsive" style="background-color:white; border-radius: 5px; max-width: 480px;">
                                 <thead>
                                     <tr>
-                                        <th style="text-align: center; min-width: 220px;">Nama Dokter</th>
-                                        <th style="text-align: center; min-width: 120px">Hari Praktek</th>
-                                        <th style="text-align: center; min-width: 140px">Jam Praktek</th>
+                                        <th style="text-align: center; max-width: 20px">No.</th>
+                                        <th style="text-align: center; min-width: 180px; max-width: 180px;">Nama Dokter</th>
+                                        <th style="text-align: center; min-width: 120px; max-width:fit-content;">Hari Praktek</th>
+                                        <th style="text-align: center; min-width: 140px; max-width: 150px;">Jam Praktek</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>dr. Suryono, S.Pd</td>
-                                        <td>Senin</td>
-                                        <td>Pagi</td>
-                                    </tr>
-                                    <tr>
-                                        <td>dr. Suryono, S.Pd</td>
-                                        <td>Senin</td>
-                                        <td>Sore</td>
-                                    </tr>
-                                    <tr>
-                                        <td>dr. Suryono, S.Pd</td>
-                                        <td>Selasa</td>
-                                        <td>Sore</td>
-                                    </tr>
-                                    <tr>
-                                        <td>dr. Suryono, S.Pd</td>
-                                        <td>Rabu</td>
-                                        <td>Pagi</td>
-                                    </tr>
-                                    <tr>
-                                        <td>dr. Suryono, S.Pd</td>
-                                        <td>Jumat</td>
-                                        <td>Pagi</td>
-                                    </tr>
-                                    <tr>
-                                        <td>dr. Suryono, S.Pd</td>
-                                        <td>Jumat</td>
-                                        <td>Sore</td>
-                                    </tr>
+                                <tbody id="schedule">
+
                                 </tbody>
                             </table>
 
@@ -186,6 +138,52 @@
     <script src="assets/js/bs-init.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.js"></script>
     <script src="assets/js/Advanced-NavBar---Multi-dropdown.js"></script>
-    
+    <script src="assets/js/Advanced-NavBar---Multi-dropdown.js"></script>
+    <script type="text/javascript">
+        $('#clinic').on('change', function() {
+            var clinic = $(this).val();
+
+            $.ajax({
+                url: 'ajaxData.php?action=doctor',
+                type: 'GET',
+                data: {
+                    clinic: clinic
+                },
+                success: function(data) {
+                    $('#doctor').html(data)
+                }
+            })
+        });
+
+        $('#clinic').on('change', function() {
+            var clinic = $(this).val();
+            $.ajax({
+                url: 'ajaxData.php?action=schedule',
+                type: 'GET',
+                data: {
+                    clinic: clinic
+                },
+                success: function(data) {
+                    $('#schedule').html(data)
+                }
+            })
+        });
+
+        $('#doctor').on('change', function() {
+            var doctor = $(this).val();
+            $.ajax({
+                url: 'ajaxData.php?action=scheduleTime',
+                type: 'GET',
+                data: {
+                    doctor: doctor
+                },
+                success: function(data) {
+                    $('#scheduleTime').html(data)
+                }
+            })
+        });
+    </script>
+
 </body>
+
 </html>
