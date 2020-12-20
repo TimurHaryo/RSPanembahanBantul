@@ -1,7 +1,5 @@
 <?php
-
 include "connection.php";
-
 $action = $_GET['action'];
 
 switch ($action) {
