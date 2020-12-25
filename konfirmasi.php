@@ -2,8 +2,7 @@
 session_start();
 include_once("connection.php");
 
-$kode = '000002-2020';
-$query =  "SELECT * FROM patient where id_patient='$kode'";
+$query =  "SELECT * FROM patient where id_patient='{$_SESSION['norm']}'";
 $result = mysqli_query($koneksi->connect, $query);
 $row = mysqli_fetch_array($result);
 $id = $row['id_patient'];
@@ -11,10 +10,16 @@ $name = $row['name_patient'];
 $tgl_lahir = $row['tgl_lahir'];
 $idnum = $row['identity_number'];
 $address = $row['address_patient'];
-
-$policlinic = "Klinik Nuklir";
-$doctor = "dr. Timur, S.Pd";
-$time = "08.00";
+/* foreach ($_SESSION['data_poli'] as $user_info){     
+    echo $user_info['userid']."<br>"; 
+    echo $user_info['policlinic']."<br>";
+}
+print_r($_SESSION); */
+//print_r($_SESSION['data_poli']);
+$policlinic = "Akupuntur";
+$doctor = "dr. Sagiran";
+$time = "08:00:00 - 14:00:00";
+$_SESSION['norm'];
 $_SESSION['policlinic'] = "$policlinic";
 $_SESSION['doctor'] = "$doctor";
 $_SESSION['time'] = "$time";
@@ -76,7 +81,28 @@ $_SESSION['time'] = "$time";
                                             <td><?php echo $name ?></td>
                                             <td style="color: rgb(72,72,72);">Policlinic</td>
                                             <td class="text-right" style="color: rgb(72,72,72);">:</td>
-                                            <td><?php echo $_SESSION["policlinic"] ?></td>
+                                            <td>
+                                                <?php 
+                                                $clinic_ajax = $_REQUEST['clinic'];
+                                                //echo $clinic_ajax;
+                                                if ($clinic_ajax == 13){
+                                                    echo "Poliklinik Akupuntur";
+                                                }elseif($clinic_ajax == 14){
+                                                    echo "Poliklinik Bedah Anak";
+                                                }elseif($clinic_ajax == 15){
+                                                    echo "Poliklinik Bedah Digestive";
+                                                }elseif($clinic_ajax == 16){
+                                                    echo "Poliklinik Poliklinik Bedah Mulut";
+                                                }
+                                                elseif($clinic_ajax == 17){
+                                                    echo "Bedah Orthopedi & Traumatologi";
+                                                }
+                                                    else{
+                                                    echo "Poliklinik Null";
+                                                }
+                                                //echo $_SESSION["policlinic"]; 
+                                                ?>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td style="color: rgb(72,72,72);">Medical Number</td>
@@ -84,7 +110,10 @@ $_SESSION['time'] = "$time";
                                             <td><?php echo $id ?></td>
                                             <td style="color: rgb(72,72,72);">Doctor</td>
                                             <td class="text-right" style="color: rgb(72,72,72);">:</td>
-                                            <td><?php echo $_SESSION["doctor"] ?></td>
+                                            <td>
+                                                <?php// echo $_POST["doctor"]; ?>
+                                                <?php echo $_SESSION["doctor"]; ?>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td style="color: rgb(72,72,72);">NIK</td>
@@ -92,7 +121,10 @@ $_SESSION['time'] = "$time";
                                             <td><?php echo $idnum ?></td>
                                             <td style="color: rgb(72,72,72);">Time</td>
                                             <td class="text-right" style="color: rgb(72,72,72);">:</td>
-                                            <td><?php echo $_SESSION["time"] ?></td>
+                                            <td>
+                                                <?php// echo $_POST["time"]; ?>
+                                                <?php echo $_SESSION["time"]; ?>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td style="color: rgb(72,72,72);">Birth Date</td>
@@ -107,7 +139,7 @@ $_SESSION['time'] = "$time";
                                         <tr>
                                             <td style="color: rgb(72,72,72);">Insurance</td>
                                             <td class="text-right" style="color: rgb(72,72,72);">:</td>
-                                            <td>umum/bpks</td>
+                                            <td><?php echo $_POST["insurance"]; ?></td>
                                         </tr>
                                         <tr>
                                             <td style="color: rgb(72,72,72);">Number</td>
@@ -119,7 +151,12 @@ $_SESSION['time'] = "$time";
                             </div>
                             <div class="row">
                                 <div class="col d-flex justify-content-center" style="padding: 56px;">
-                                    <div class="btn-group" role="group" style="border-style: none;"><button class="btn btn-primary text-center justify-content-xl-center align-items-xl-end" type="button" style="background: #b9cad6;color: #000000;font-weight: bold;border-style: none;">Kembali</button>
+                                    <div class="btn-group" role="group" style="border-style: none;">
+                                    <a href="basicdata.php">
+                                    <button class="btn btn-primary text-center justify-content-xl-center align-items-xl-end" type="button" style="background: #b9cad6;color: #000000;font-weight: bold;border-style: none;">
+                                    Kembali
+                                    </button>
+                                    </a>
                                     <button class="btn btn-primary" type="button" style="background: #dfe8ee;color: rgb(0,0,0);font-weight: bold;border-style: none;">
                                         <a href="cetak.php"><font style="color: rgb(0,0,0)">Lanjutkan</font></a>
                                     </button>
@@ -154,7 +191,22 @@ $_SESSION['time'] = "$time";
     <script src="assets/js/bs-init.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.js"></script>
     <script src="assets/js/Advanced-NavBar---Multi-dropdown.js"></script>
-   
+    <script>
+       $('#clinic').on('change', function() {
+            var clinic = $(this).val();
+
+            $.ajax({
+                url: 'ajaxData.php?action=doctor',
+                type: 'GET',
+                data: {
+                    clinic: clinic
+                },
+                success: function(data) {
+                    $('#doctor').html(data)
+                }
+            })
+        });
+    </script>
 </body>
 
 </html>
