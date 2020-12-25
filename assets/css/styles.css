@@ -153,6 +153,7 @@ button:hover {
 
   .card-01:hover{
      background-color: turquoise;
+     text-decoration: none;
   }
 
 
