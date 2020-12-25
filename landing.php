@@ -149,7 +149,7 @@ if (isset($_POST["daftar"]))
                 <i class="fa fa-user-plus fa-5x"></i>
                 <h5>PENDAFTARAN ONLINE</h5>
             </div>
-            <a href="klinik.php" class="card-01" data-aos="fade-down" data-aos-duration="1000">
+            <a href="jadwal.php" class="card-01" data-aos="fade-down" data-aos-duration="1000">
             <div>
                 <i class="fa fa-user-md fa-5x"></i>
                 <h5>JADWAL DOKTER</h5>
