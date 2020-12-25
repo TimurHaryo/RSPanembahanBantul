@@ -75,18 +75,13 @@ if (isset($_POST["daftar"]))
                     <div id="ketentuan">
                         <h5>KETENTUAN PENDAFTARAN</h5>
                         <ul>
-                            <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci ex maiores quas atque
-                                autem
-                                consequuntur laborum fugiat voluptatum expedita ipsam velit nemo qui, quia fuga veniam,
-                                amet
-                                dignissimos dolorem ratione!
-                            </li>
-                            <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci ex maiores quas atque
-                                autem
-                                consequuntur laborum fugiat voluptatum expedita ipsam velit nemo qui, quia fuga veniam,
-                                amet
-                                dignissimos dolorem ratione!
-                            </li>
+                            <li>Pasien sudah terdaftar di RSUD BANTUL dan memiliki nomor rekam medis.</li>
+                            <li>Bagi pasien baru yang belum pernah mendaftar di RSUD Panembahan Senopati harap datang langsung ke ...</li>
+                            <li>Pendaftaran dapat dilakukan 1 BULAN s.d. 3 HARI sebelum pemeriksaan.</li>
+                            <li>Pendaftaran untuk H-1 Maksimal dapat dilakukan sebelum jam 14.00, setelah jam tersebut pasien mendaftar di hari berikutnya. Untuk pendaftaran pemeriksaan hari senin minimal dilakukan pada hari jumat sebelum jam 14:00 WIB.</li>
+                            <li>Apabila Anda telah melakukan pendaftaran Online, Anda akan mendapatkan Bukti pendaftaran yang dapat dicetak dan dibawa pada Hari Berobat.</li>
+                            <li>Untuk kasus Gawat Darurat silakan datang ke IGD RSUD Panembahan Senopati.</li>
+                            <li>Pasien yang telah melakukan registrasi online diharapkan datang tepat waktu (Minimal 1 jam sebelum jadwal Poli Dokter).</li>
                         </ul>
                     </div>
                 </div>
@@ -151,33 +146,44 @@ if (isset($_POST["daftar"]))
     <div class="menu-wrapper">
         <div class="row">
             <div class="card-01" data-aos="fade-up" data-aos-duration="1000" data-toggle="modal" data-target="#myModal">
-                <i class="fa fa-user-md fa-5x"></i>
+                <i class="fa fa-user-plus fa-5x"></i>
                 <h5>PENDAFTARAN ONLINE</h5>
             </div>
             <div class="card-01" data-aos="fade-down" data-aos-duration="1000">
                 <i class="fa fa-user-md fa-5x"></i>
                 <h5>JADWAL DOKTER</h5>
             </div>
-            <div class="card-01" data-aos="fade-up" data-aos-duration="1000">
+            <!-- <div class="card-01" data-aos="fade-up" data-aos-duration="1000">
                 <i class="fa fa-user-md fa-5x"></i>
                 <h5>POLIKLINIK</h5>
-            </div>
+            </div> -->
         </div>
     </div>
 
     <div class="footer-basic" style="margin-top: 50px;">
         <footer>
-            <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i
-                        class="icon ion-social-snapchat"></i></a><a href="#"><i
-                        class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a>
-            </div>
-            <ul class="list-inline">
+            <!-- <div class="social">
+                <a href="https://www.instagram.com/rsudps/">
+                    <i class="icon ion-social-instagram"></i>
+                </a>
+                <a href="#">
+                    <i class="icon ion-mail"></i>
+                    
+
+                </a>
+                <a href="#">
+                    <i class="icon ion-social-twitter"></i>
+                </a>
+                    <a href="#"><i class="icon ion-social-facebook"></i>
+                </a>
+            </div> -->
+            <!-- <ul class="list-inline">
                 <li class="list-inline-item"><a href="#">Home</a></li>
                 <li class="list-inline-item"><a href="#">Services</a></li>
                 <li class="list-inline-item"><a href="#">About</a></li>
                 <li class="list-inline-item"><a href="#">Terms</a></li>
                 <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
-            </ul>
+            </ul> -->
             <p class="copyright">18 BCI - UNIVERSITAS AMIKOM YOGYAKARTA © 2020</p>
         </footer>
     </div>
