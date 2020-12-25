@@ -149,14 +149,12 @@ if (isset($_POST["daftar"]))
                 <i class="fa fa-user-plus fa-5x"></i>
                 <h5>PENDAFTARAN ONLINE</h5>
             </div>
-            <div class="card-01" data-aos="fade-down" data-aos-duration="1000">
+            <a href="klinik.php" class="card-01" data-aos="fade-down" data-aos-duration="1000">
+            <div>
                 <i class="fa fa-user-md fa-5x"></i>
                 <h5>JADWAL DOKTER</h5>
             </div>
-            <!-- <div class="card-01" data-aos="fade-up" data-aos-duration="1000">
-                <i class="fa fa-user-md fa-5x"></i>
-                <h5>POLIKLINIK</h5>
-            </div> -->
+            </a>
         </div>
     </div>
 
@@ -184,7 +182,7 @@ if (isset($_POST["daftar"]))
                 <li class="list-inline-item"><a href="#">Terms</a></li>
                 <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
             </ul> -->
-            <p class="copyright">18 BCI - UNIVERSITAS AMIKOM YOGYAKARTA © 2020</p>
+            <p class="copyright" >18 BCI - UNIVERSITAS AMIKOM YOGYAKARTA © 2020</p>
         </footer>
     </div>
     <script src="assets/js/jquery.min.js"></script>
