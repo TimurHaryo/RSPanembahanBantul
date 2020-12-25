@@ -1,3 +1,18 @@
+<?php
+include_once("connection.php");
+
+$id = '000002-2020';
+$query =  "SELECT * FROM patient where id_patient='$id'";
+$result = mysqli_query($koneksi->connect, $query);
+$row = mysqli_fetch_array($result);
+$name = $row['name_patient'];
+$id = $row['id_patient'];
+$idnum = $row['identity_number'];
+$tgl_lahir = $row['tgl_lahir'];
+$address = $row['address_patient'];
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,7 +62,7 @@
                                             <td style="border: 0px;color: rgb(72,72,72);">
                                                 Name
                                                 <div class="input-group input-group-sm mb-3">
-                                                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                                    <input type="text" class="form-control" value="<?php echo $row['name_patient']?>" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" disabled>
                                                 </div>
                                             </td>
                                         </tr>
@@ -55,7 +70,7 @@
                                             <td style="border: 0px;color: rgb(72,72,72);">
                                                 Medical Number
                                                 <div class="input-group input-group-sm mb-3">
-                                                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                                    <input type="text" class="form-control" value="<?php echo $row['id_patient']?>" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" disabled>
                                                 </div>
                                             </td>
                                         </tr>
@@ -63,7 +78,7 @@
                                             <td style="border: 0px;color: rgb(72,72,72);">
                                                 NIK
                                                 <div class="input-group input-group-sm mb-3">
-                                                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                                    <input type="text" class="form-control" value="<?php echo $row['identity_number']?>" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" disabled>
                                                 </div>
                                             </td>
                                         </tr>
@@ -71,7 +86,7 @@
                                             <td style="border: 0px;color: rgb(72,72,72);">
                                                 Birth Date
                                                 <div class="input-group input-group-sm mb-3">
-                                                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                                    <input type="text" class="form-control" value="<?php echo $row['tgl_lahir']?>" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" disabled>
                                                 </div>
                                             </td>
                                         </tr>
@@ -79,7 +94,7 @@
                                             <td style="border: 0px;color: rgb(72,72,72);">
                                                 Address
                                                 <div class="input-group input-group-sm mb-3">
-                                                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                                    <input type="text" class="form-control" value="<?php echo $row['address_patient']?>" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" disabled>
                                                 </div>
                                             </td>
                                         </tr>
@@ -87,7 +102,7 @@
                                             <td style="border: 0px;color: rgb(72,72,72);">
                                                 Insurance
                                                 <div class="input-group input-group-sm mb-3">
-                                                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                                    <input type="text" class="form-control" value="BPJS/Umum" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" disabled>
                                                 </div>
                                             </td>
                                         </tr>
@@ -98,38 +113,53 @@
                         <div class="col">
                             <div class="table-responsive table-borderless">
                                 <table class="table table-bordered">
+
+
+                                    <?php
+                                    include_once("connection.php");
+
+                                    $id = '000002-2020';
+                                    $query =  "SELECT doc.name_doctor, sc.day, sc.start, sc.end FROM clinic_schedule cs INNER JOIN doctor doc ON cs.id_doctor = doc.id_doctor INNER JOIN schedule sc ON cs.id_schedule = sc.id_schedule INNER JOIN booking bk on cs.id_clinic_schedule = bk.id_clinic_scheduling WHERE bk.id_patient='$id'";
+
+                                    $result = mysqli_query($koneksi->connect, $query);
+                                    $row = mysqli_fetch_array($result);
+                                    $name = $row['name_doctor'];
+                                    $day = $row['day'];
+                                    $start = $row['start'];
+                                    $end = $row['end'];
+                                    ?>                                    
+
                                     <tbody style="border: none;">
                                         <tr>
-                                            <td style="border: 0px;color: rgb(72,72,72);">
-                                                <center>Active Booking</center>
-                                                <hr>
-                                            </td>
+                                        <p style="text-align: center">Active Booking</p>
                                         </tr>
                                         <tr>
                                             <td>
                                                 <div class="col-md-12">
-                                                    <table class="table table-bordered table-striped">
-                                                        <tr>
-                                                            <th>No</th>
-                                                            <th>Name</th>
-                                                            <th>Day</th>
-                                                            <th>Time</th>
-                                                        </tr>
-                                                        <tr>
-                                                            <th>1.</th>
-                                                            <th>dr. Suryono, S.Pd</th>
-                                                            <th>Senin</th>
-                                                            <th>Sore</th>
-                                                        </tr>
-                                                    </table>
+                                                    <div class="table-responsive table-light" style="border-radius: 20px;">
+                                                        <table class="table table-bordered table-striped">
+                                                            <tr>
+                                                                <th>No</th>
+                                                                <th>Name</th>
+                                                                <th>Day</th>
+                                                                <th>Time</th>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>1.</td>
+                                                                <td><?php echo $name?></td>
+                                                                <td><?php echo $day?></td>
+                                                                <td><?php echo $start . '-' . $end?></td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
                                                 </div>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
                                                 <center>
-                                                    <input type="button" value="Cancel Booking">
-                                                    <input type="button" value="Print Ticket">
+                                                    <a class="btn btn-light" href="basicdata.php">Cancel Booking</a>
+                                                    <a class="btn btn-dark" href="konfirmasi.php">Print Ticket</a>
                                                 </center>
                                             </td>
                                         </tr>

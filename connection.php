@@ -17,7 +17,7 @@ class connection extends config
         if (mysqli_connect_errno()) {
             // echo "Koneksi database gagal : " . mysqli_connect_error();
         } else {
-            //echo "koneksi database berhasil";
+            // echo "koneksi database berhasil";
         }
     }
 }

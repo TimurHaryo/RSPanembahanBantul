@@ -11,13 +11,12 @@ $name = $row['name_patient'];
 $tgl_lahir = $row['tgl_lahir'];
 $idnum = $row['identity_number'];
 $address = $row['address_patient'];
-
 // $policlinic = "Klinik Nuklir";
 // $doctor = "dr. Timur, S.Pd";
 // $time = "08.00";
-// $_SESSION['policlinic'] = "$policlinic";
-// $_SESSION['doctor'] = "$doctor";
-// $_SESSION['time'] = "$time";
+$_SESSION['policlinic'] = "$policlinic";
+$_SESSION['doctor'] = "$doctor";
+$_SESSION['time'] = "$time";
 ?>
 <!DOCTYPE html>
 <html>
