@@ -2,7 +2,7 @@
 session_start();
 include_once("connection.php");
 
-$kode = '000002-2020';
+$kode = $_SESSION["norm"];
 $query =  "SELECT * FROM patient where id_patient='$kode'";
 $result = mysqli_query($koneksi->connect, $query);
 $row = mysqli_fetch_array($result);
@@ -11,10 +11,9 @@ $name = $row['name_patient'];
 $tgl_lahir = $row['tgl_lahir'];
 $idnum = $row['identity_number'];
 $address = $row['address_patient'];
-
-$policlinic = "Klinik Nuklir";
-$doctor = "dr. Timur, S.Pd";
-$time = "08.00";
+// $policlinic = "Klinik Nuklir";
+// $doctor = "dr. Timur, S.Pd";
+// $time = "08.00";
 $_SESSION['policlinic'] = "$policlinic";
 $_SESSION['doctor'] = "$doctor";
 $_SESSION['time'] = "$time";

@@ -1,3 +1,8 @@
+<?php
+session_start();
+require 'connection.php';
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -55,8 +60,7 @@
                                                                 <span class="input-group-text" id="inputGroup-sizing-default">Medical Number</span>
                                                             </div>
                                                             <?php
-                                                            include("connection.php");
-                                                            $no_rm = "RS000001-2020";
+                                                            $no_rm = $_SESSION["norm"];
                                                             echo "<input value='" . $no_rm . "' type='text' class='form-control' aria-label='Sizing example input' aria-describedby='inputGroup-sizing-default' disabled>";
                                                             ?>
                                                         </div>
@@ -161,8 +165,12 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col d-flex justify-content-center" style="padding: 80px;">
-                                                    <div class="btn-group" role="group" style="border-style: none;"><button class="btn btn-primary text-center justify-content-sm-center align-items-sm-end" type="button" style="background: #b9cad6;color: #000000;font-weight: bold;border-style: none;">Kembali</button><button class="btn btn-primary" type="button" style="background: #dfe8ee;color: rgb(0,0,0);font-weight: bold;border-style: none;">Lanjutkan</button>
-                                                    </div>
+                                                    <div class="btn-group" role="group" style="border-style: none;">
+                                                    <button class="btn btn-primary text-center justify-content-sm-center align-items-sm-end" type="button" style="background: #b9cad6;color: #000000;font-weight: bold;border-style: none;">Kembali</button>
+                                                    
+                                                    <button class="btn btn-primary" type="button" name="lanjutkan" style="background: #dfe8ee;color: rgb(0,0,0);font-weight: bold;border-style: none;">Lanjutkan</button>
+ 
+                                                </div>
                                                 </div>
                                             </div>
                                         </div>
