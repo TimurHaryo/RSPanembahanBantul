@@ -1,8 +1,8 @@
 <?php
+session_start();
 include_once("connection.php");
 
-$id = '000002-2020';
-$query =  "SELECT * FROM patient where id_patient='$id'";
+$query =  "SELECT * FROM patient where id_patient='{$_SESSION['norm']}'";
 $result = mysqli_query($koneksi->connect, $query);
 $row = mysqli_fetch_array($result);
 $name = $row['name_patient'];
@@ -36,13 +36,13 @@ $address = $row['address_patient'];
         <div class="container"><a class="navbar-brand" href="#" style="color: rgb(255,255,255);text-align: center;font-family: Allerta, sans-serif;border-style: none;text-shadow: 2px 0px 3px rgb(2,182,255);"><img class="img-fluid swing animated" src="assets/img/rs%20logo.png" style="width: 30px;margin: 0 10;filter: grayscale(0%);border-style: none;">RSUD Panembahan Senopati</a>
             <button
                 data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navcol-1">
+                <!-- <div class="collapse navbar-collapse" id="navcol-1">
                     <ul class="nav navbar-nav ml-auto">
                         <li class="nav-item"></li>
                         <li class="nav-item"></li>
                         <li class="nav-item"></li>
                     </ul>
-                </div>
+                </div> -->
         </div>
     </nav>
     <main></main>
@@ -118,8 +118,8 @@ $address = $row['address_patient'];
                                     <?php
                                     include_once("connection.php");
 
-                                    $id = '000002-2020';
-                                    $query =  "SELECT doc.name_doctor, sc.day, sc.start, sc.end FROM clinic_schedule cs INNER JOIN doctor doc ON cs.id_doctor = doc.id_doctor INNER JOIN schedule sc ON cs.id_schedule = sc.id_schedule INNER JOIN booking bk on cs.id_clinic_schedule = bk.id_clinic_scheduling WHERE bk.id_patient='$id'";
+                                    
+                                    $query =  "SELECT doc.name_doctor, sc.day, sc.start, sc.end FROM clinic_schedule cs INNER JOIN doctor doc ON cs.id_doctor = doc.id_doctor INNER JOIN schedule sc ON cs.id_schedule = sc.id_schedule INNER JOIN booking bk on cs.id_clinic_schedule = bk.id_clinic_scheduling WHERE bk.id_patient='{$_SESSION['norm']}'";
 
                                     $result = mysqli_query($koneksi->connect, $query);
                                     $row = mysqli_fetch_array($result);
@@ -158,8 +158,8 @@ $address = $row['address_patient'];
                                         <tr>
                                             <td>
                                                 <center>
-                                                    <a class="btn btn-light" href="basicdata.php">Cancel Booking</a>
-                                                    <a class="btn btn-dark" href="konfirmasi.php">Print Ticket</a>
+                                                    <a class="btn btn-light" href="#">Cancel Booking</a>
+                                                    <a class="btn btn-dark" href="cetak.php">Print Ticket</a>
                                                 </center>
                                             </td>
                                         </tr>

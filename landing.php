@@ -16,7 +16,7 @@ if (isset($_POST["daftar"]))
             $_SESSION["boking"] = true;
             $_SESSION["norm"] = $norm;
 
-            header("location:konfirmasi.php");
+            header("location:dashboard.php");
             exit;
         } else {
             $_SESSION["norm"] = $norm;
