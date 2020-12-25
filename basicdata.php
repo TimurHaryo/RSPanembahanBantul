@@ -1,8 +1,6 @@
 <?php
 session_start();
-require 'connection.php';
 ?>
-
 <!DOCTYPE html>
 <html>
 
@@ -42,6 +40,7 @@ require 'connection.php';
     <div class="text-center d-flex d-xl-flex justify-content-center order-1 justify-content-xl-center" style="align-content: center;">
         <div class="container text-left" style="margin: 31px;">
             <div class="row" style="background: #15dcff;border-style: none;border-radius: 30px;margin: 40px 0 0 0;box-shadow: 20px 40px 7px 3px rgba(33,37,41,0.7);">
+            <form action="konfirmasi.php" method="POST">
                 <div class="col-md-12">
                     <h4 class="text-center bounce animated" style="margin-top: 20px;">Patient Basic Data</h4>
                     <h5 class="text-center flash animated" style="margin: 10px 0 50px 0;">Registered Patient</h5>
@@ -49,6 +48,7 @@ require 'connection.php';
                     <div class="row order-1">
                         <div class="col">
                             <div class="row order-1">
+                            
                                 <div class="col">
                                     <div class="table-responsive table-borderless">
                                         <table class="table table-bordered">
@@ -60,7 +60,11 @@ require 'connection.php';
                                                                 <span class="input-group-text" id="inputGroup-sizing-default">Medical Number</span>
                                                             </div>
                                                             <?php
-                                                            $no_rm = $_SESSION["norm"];
+                                                            
+                                                            include("connection.php");
+                                                            $no_rm = "000001-2020";
+                                                            $_SESSION['norm'] = $no_rm;
+                                                            //$_SESSION['rm'] = "$no_rm";
                                                             echo "<input value='" . $no_rm . "' type='text' class='form-control' aria-label='Sizing example input' aria-describedby='inputGroup-sizing-default' disabled>";
                                                             ?>
                                                         </div>
@@ -70,16 +74,23 @@ require 'connection.php';
                                                     <td style="border: 0px;color: rgb(72,72,72);">
                                                         <div class="form-group">
                                                             <label for="clinic">Clinic Destination</label>
-                                                            <select class="form-control" id="clinic">
+                                                            <select class="form-control" id="clinic" name="clinic">
                                                                 <option disabled selected> Pilih </option>
                                                                 <?php
                                                                 $query_get_clinic = "SELECT * FROM clinic";
                                                                 $result_clinic = mysqli_query($koneksi->connect, $query_get_clinic);
                                                                 if ($result_clinic->num_rows > 0) {
+                
                                                                     while ($row = mysqli_fetch_assoc($result_clinic)) {
-                                                                        echo "<option value='" . $row['id_clinic'] . "'>Poliklinik " . $row['name_clinic'] . "</option>";
+                                                                        echo "<option value='" . $user_info['userid']= $row['id_clinic'] . "'>Poliklinik " .   $user_info['policlinic'] = $row['name_clinic'] . "</option>";
+                                                                        $data_clinic[]=$user_info;
                                                                     }
+                                                                    
+                                                                    $_SESSION['data_poli'] = $data_clinic;
                                                                 }
+                                                               
+                                                                
+                    
                                                                 mysqli_close($koneksi->connect);
                                                                 ?>
                                                             </select>
@@ -90,7 +101,7 @@ require 'connection.php';
                                                     <td style="border: 0px;color: rgb(72,72,72);">
                                                         <div class="form-group">
                                                             <label for="doctor">Doctor</label>
-                                                            <select class="form-control" id="doctor">
+                                                            <select class="form-control" id="doctor" name="doctor">
                                                                 <option disabled selected> Pilih Dokter </option>
                                                             </select>
                                                         </div>
@@ -100,7 +111,7 @@ require 'connection.php';
                                                     <td style="border: 0px;color: rgb(72,72,72);">
                                                         <div class="form-group">
                                                             <label for="sel1">Time</label>
-                                                            <select class="form-control" id="scheduleTime">
+                                                            <select class="form-control" id="scheduleTime" name="time">
                                                                 <option disabled selected> Pilih Waktu </option>
                                                             </select>
                                                         </div>
@@ -110,7 +121,7 @@ require 'connection.php';
                                                     <td style="border: 0px;color: rgb(72,72,72);">
                                                         <div class="form-group">
                                                             <label for="sel1">Insurance</label>
-                                                            <select class="form-control" id="sel1">
+                                                            <select class="form-control" id="sel1" name="insurance">
                                                                 <option>Umum</option>
                                                                 <option>BPJS</option>
                                                             </select>
@@ -121,6 +132,7 @@ require 'connection.php';
                                         </table>
                                     </div>
                                 </div>
+                            
                                 <div class="col">
                                     <div class="table-responsive table-borderless">
                                         <table class="table table-bordered">
@@ -165,12 +177,11 @@ require 'connection.php';
                                             </div>
                                             <div class="row">
                                                 <div class="col d-flex justify-content-center" style="padding: 80px;">
-                                                    <div class="btn-group" role="group" style="border-style: none;">
-                                                    <button class="btn btn-primary text-center justify-content-sm-center align-items-sm-end" type="button" style="background: #b9cad6;color: #000000;font-weight: bold;border-style: none;">Kembali</button>
-                                                    
-                                                    <button class="btn btn-primary" type="button" name="lanjutkan" style="background: #dfe8ee;color: rgb(0,0,0);font-weight: bold;border-style: none;">Lanjutkan</button>
- 
-                                                </div>
+                                                    <div class="btn-group" role="group" style="border-style: none;"><button class="btn btn-primary text-center justify-content-sm-center align-items-sm-end" type="button" style="background: #b9cad6;color: #000000;font-weight: bold;border-style: none;">Kembali</button>
+                                                    <!-- <a href="konfirmasi.php"> -->
+                                                        <button class="btn btn-primary" type="submit" value="simpan" style="background: #dfe8ee;color: rgb(0,0,0);font-weight: bold;border-style: none;">Lanjutkan</button>
+                                                    <!-- </a> -->
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -180,6 +191,7 @@ require 'connection.php';
                         </div>
                     </div>
                 </div>
+                </form>
             </div>
         </div>
     </div>

@@ -1,13 +1,26 @@
 <?php
 session_start();
 include_once("connection.php");
-
+//$kode = 'RS-0000003';
 
 $_SESSION['policlinic'];
 $_SESSION['doctor'];
 $_SESSION['time'];
+//echo $_SESSION['rm'] = "$rm_tem";
 //$result = mysqli_query($mysqli, "INSERT INTO patient (id_patient,name_patient,address_patient,jenis_kelain,identity_number,tempat_lahir,adult) VALUES('$kode','$nama','$kota','$negara')");
-$result = mysqli_query($mysqli, "INSERT INTO booking (id_booking,id_patient,id_clinic_scheduling) VALUES('$kode','$nama','$kota','$negara')");
+/* $sql = "INSERT INTO booking (id_booking,id_patient,id_clinic_scheduling) VALUES('$kode','$rm_tem','null')";
+if ($conn->query($sql) === TRUE) {
+    echo "New record created successfully";
+  } else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+  }
+  if (mysqli_query($conn, $sql)) {
+    echo "New record created successfully";
+  } else {
+    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+  }
+  */
+  
 ?>
 <!DOCTYPE html>
 <html>
@@ -70,7 +83,7 @@ $result = mysqli_query($mysqli, "INSERT INTO booking (id_booking,id_patient,id_c
                         <div class="col text-center"><label><?php echo $_SESSION['doctor']; ?></label><br>
                         <label><?php echo $_SESSION['time']; ?></label>
                             <div class="row">
-                                <div class="col"><label style="font-size: 90px;">21</label>
+                                <div class="col"><label style="font-size: 90px;">1</label>
                                     <div class="row">
                                         <div class="col">
                                         <?php 
@@ -79,7 +92,8 @@ $result = mysqli_query($mysqli, "INSERT INTO booking (id_booking,id_patient,id_c
                                             if (!file_exists($tempdir))
                                                mkdir($tempdir);
                                             //isi qrcode jika di scan
-                                            $codeContents = '123'; 
+                                            $queue = $_SESSION['norm'];
+                                            $codeContents =$queue; 
                                             QRcode::png($codeContents, $tempdir.'007_4.png', QR_ECLEVEL_L, 7, 2);
                                             
                                             echo '<img src="'.$tempdir.'007_4.png" />'; 
