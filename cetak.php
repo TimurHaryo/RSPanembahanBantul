@@ -12,6 +12,11 @@ $result = mysqli_query($mysqli, "INSERT INTO booking (id_booking,id_patient,id_c
 <!DOCTYPE html>
 <html>
 
+
+
+/////saga
+
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -122,3 +127,5 @@ $result = mysqli_query($mysqli, "INSERT INTO booking (id_booking,id_patient,id_c
 </body>
 
 </html>
+
+/////saga
