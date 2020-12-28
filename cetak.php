@@ -27,8 +27,6 @@ if ($conn->query($sql) === TRUE) {
 
 
 
-/////saga
-
 
 <head>
     <meta charset="utf-8">

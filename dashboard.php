@@ -158,7 +158,7 @@ $address = $row['address_patient'];
                                         <tr>
                                             <td>
                                                 <center>
-                                                    <a class="btn btn-light" href="#">Cancel Booking</a>
+                                                    <a class="btn btn-light" href="landing.php">Cancel Booking</a>
                                                     <a class="btn btn-dark" href="cetak.php">Print Ticket</a>
                                                 </center>
                                             </td>
