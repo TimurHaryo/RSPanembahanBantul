@@ -115,30 +115,7 @@ $address = $row['address_patient'];
                                 <table class="table table-bordered">
 
 
-                                    <?php
-                                    include_once("connection.php");
-
-                                    
-                                    $query =  "SELECT doc.name_doctor, cl.name_clinic, sc.day, sc.start, sc.end
-                                                FROM clinic_schedule cs
-                                                INNER JOIN doctor doc 
-                                                ON cs.id_doctor = doc.id_doctor
-                                                INNER JOIN clinic cl
-                                                ON cs.id_clinic = cl.id_clinic
-                                                INNER JOIN schedule sc 
-                                                ON cs.id_schedule = sc.id_schedule 
-                                                INNER JOIN booking bk 
-                                                ON cs.id_clinic_schedule = bk.id_clinic_scheduling 
-                                                WHERE bk.id_patient='{$_SESSION['norm']}'";
-
-                                    $result = mysqli_query($koneksi->connect, $query);
-                                    $row = mysqli_fetch_array($result);
-                                    $name = $row['name_doctor'];
-                                    $clinic = $row['name_clinic'];
-                                    $day = $row['day'];
-                                    $start = $row['start'];
-                                    $end = $row['end'];
-                                    ?>                                    
+                                                              
 
                                     <tbody style="border: none;">
                                         <tr>
@@ -151,17 +128,53 @@ $address = $row['address_patient'];
                                                         <table class="table table-bordered table-striped">
                                                             <tr>
                                                                 <th>No</th>
+                                                                <th>ID Booking</th>
                                                                 <th>Name</th>
                                                                 <th>Clinic</th>
                                                                 <th>Day</th>
                                                                 <th>Time</th>
                                                             </tr>
+
+                                                            <?php
+                                                            include_once("connection.php");
+
+                                                            
+                                                            $query =  "SELECT doc.name_doctor, cl.name_clinic, sc.day, sc.start, sc.end, bk.id_booking
+                                                                        FROM clinic_schedule cs
+                                                                        INNER JOIN doctor doc 
+                                                                        ON cs.id_doctor = doc.id_doctor
+                                                                        INNER JOIN clinic cl
+                                                                        ON cs.id_clinic = cl.id_clinic
+                                                                        INNER JOIN schedule sc 
+                                                                        ON cs.id_schedule = sc.id_schedule 
+                                                                        INNER JOIN booking bk 
+                                                                        ON cs.id_clinic_schedule = bk.id_clinic_scheduling 
+                                                                        WHERE bk.id_patient='{$_SESSION['norm']}'";
+
+                                                            $result = mysqli_query($koneksi->connect, $query);
+                                                            // $row = mysqli_fetch_array($result);
+                                                            $i = 1;
+                                                            while($row = mysqli_fetch_array($result))
+                                                            // $name = $row['name_doctor'];
+                                                            // $clinic = $row['name_clinic'];
+                                                            // $day = $row['day'];
+                                                            // $start = $row['start'];
+                                                            // $end = $row['end'];
+                                                            {
+                                                            ?>
+
                                                             <tr>
-                                                                <td>1.</td>
-                                                                <td><?php echo $name?></td>
-                                                                <td><?php echo $clinic?></td>
-                                                                <td><?php echo $day?></td>
-                                                                <td><?php echo $start . '-' . $end?></td>
+                                                                <td>
+                                                                    <?php
+                                                                        echo $i . '.';
+                                                                        $i++;
+                                                                    ?>
+                                                                </td>
+                                                                <td><?php echo $row['id_booking']//$name?></td>
+                                                                <td><?php echo $row['name_doctor']//$name?></td>
+                                                                <td><?php echo $row['name_clinic']//$clinic?></td>
+                                                                <td><?php echo $row['day']//$day?></td>
+                                                                <td><?php echo $row['start']/*$start*/ . '-' . $row['end']//$end?></td>
                                                             </tr>
                                                         </table>
                                                     </div>
@@ -171,7 +184,10 @@ $address = $row['address_patient'];
                                         <tr>
                                             <td>
                                                 <center>
-                                                    <a class="btn btn-light" href="#">Cancel Booking</a>
+                                                    <a class="btn btn-light" href="deletebooking.php?id=<?php echo $row['id_booking']?>">Cancel Booking</a>
+                                                    <?php
+                                                    }
+                                                    ?>
                                                     <a class="btn btn-dark" href="cetak.php">Print Ticket</a>
                                                 </center>
                                             </td>
