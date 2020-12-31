@@ -11,10 +11,13 @@ $ab = strval($a);
 $aa = "RS-";
 $kode = $aa.$ab;
 $berhasil =0;
-$queryS = "SELECT id_clinic_schedule FROM clinic_schdule WHERE (id_clinic='{$_SESSION["ses_policlinic"]}') AND (id_doctor='{$_SESSION['ses_doctor']}')";
+$ide_clinic = $_SESSION["ses_policlinic"];
+$ide_doc = $_SESSION['ses_doctor'];
+$ide_time = $_SESSION["ses_time"];
+$queryS = "SELECT id_clinic_schedule FROM clinic_schedule WHERE (id_clinic=$ide_clinic) AND (id_doctor=$ide_doc) AND (id_clinic_scheduling=$ide_time)";
 $resultS = mysqli_query($koneksi->connect, $queryS);
 $row = mysqli_fetch_array($resultS);
-$id_clinic_scheduling = $row['id_clinic_schdule'];
+$id_clinic_scheduling = $row['id_clinic_schedule'];
 echo $id_clinic_scheduling;
 //$_SESSION['ses_time'] = $id_clinic_scheduling;
 $_SESSION['kode_boking'] = $kode;
@@ -63,7 +66,7 @@ if ($query2 == TRUE) {
 }
 
 if ($berhasil==1){
-    //header("Location: cetak.php");
+    header("Location: cetak.php");
 }else{
     echo "Gagal Proses";
 }
