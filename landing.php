@@ -16,11 +16,11 @@ if (isset($_POST["daftar"]))
             $_SESSION["boking"] = true;
             $_SESSION["norm"] = $norm;
 
-            header("location:konfirmasi.php");
+            header("location:dashboard.php"); //progres 4
             exit;
         } else {
             $_SESSION["norm"] = $norm;
-            header("location:basicdata.php");
+            header("location:basicdata.php"); //progres 4
         }
     } else {
         $error = true;
@@ -46,7 +46,7 @@ if (isset($_POST["daftar"]))
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
-<body>
+<body style="background: url(&quot;assets/img/pat.webp&quot;);">
 
     <!-- Daftar Form -->
     <div class="modal fade" id="myModal" role="dialog">
@@ -149,7 +149,7 @@ if (isset($_POST["daftar"]))
                 <i class="fa fa-user-plus fa-5x"></i>
                 <h5>PENDAFTARAN ONLINE</h5>
             </div>
-            <a href="jadwal.php" class="card-01" data-aos="fade-down" data-aos-duration="1000">
+            <a href="jadwal.php" class="card-01" data-aos="fade-down" data-aos-duration="1000" style="color:white; text-decoration:none;">
             <div>
                 <i class="fa fa-user-md fa-5x"></i>
                 <h5>JADWAL DOKTER</h5>
@@ -158,14 +158,14 @@ if (isset($_POST["daftar"]))
         </div>
     </div>
 
-    <div class="footer-basic" style="margin-top: 50px;">
+    <div class="footer-basic" style="margin-top: 50px; background: url(&quot;assets/img/pat.webp&quot;);" >
         <footer>
-            <!-- <div class="social">
+            <div class="social">
                 <a href="https://www.instagram.com/rsudps/">
                     <i class="icon ion-social-instagram"></i>
                 </a>
                 <a href="#">
-                    <i class="icon ion-mail"></i>
+                    <i class="icon ion-android-mail"></i>
                     
 
                 </a>
@@ -174,7 +174,7 @@ if (isset($_POST["daftar"]))
                 </a>
                     <a href="#"><i class="icon ion-social-facebook"></i>
                 </a>
-            </div> -->
+            </div>
             <!-- <ul class="list-inline">
                 <li class="list-inline-item"><a href="#">Home</a></li>
                 <li class="list-inline-item"><a href="#">Services</a></li>
@@ -182,7 +182,7 @@ if (isset($_POST["daftar"]))
                 <li class="list-inline-item"><a href="#">Terms</a></li>
                 <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
             </ul> -->
-            <p class="copyright" >18 BCI - UNIVERSITAS AMIKOM YOGYAKARTA © 2020</p>
+            <p class="copyright" style="font-weight: bold;">18 BCI - UNIVERSITAS AMIKOM YOGYAKARTA © 2020</p>
         </footer>
     </div>
     <script src="assets/js/jquery.min.js"></script>
