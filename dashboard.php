@@ -119,11 +119,22 @@ $address = $row['address_patient'];
                                     include_once("connection.php");
 
                                     
-                                    $query =  "SELECT doc.name_doctor, sc.day, sc.start, sc.end FROM clinic_schedule cs INNER JOIN doctor doc ON cs.id_doctor = doc.id_doctor INNER JOIN schedule sc ON cs.id_schedule = sc.id_schedule INNER JOIN booking bk on cs.id_clinic_schedule = bk.id_clinic_scheduling WHERE bk.id_patient='{$_SESSION['norm']}'";
+                                    $query =  "SELECT doc.name_doctor, cl.name_clinic, sc.day, sc.start, sc.end
+                                                FROM clinic_schedule cs
+                                                INNER JOIN doctor doc 
+                                                ON cs.id_doctor = doc.id_doctor
+                                                INNER JOIN clinic cl
+                                                ON cs.id_clinic = cl.id_clinic
+                                                INNER JOIN schedule sc 
+                                                ON cs.id_schedule = sc.id_schedule 
+                                                INNER JOIN booking bk 
+                                                ON cs.id_clinic_schedule = bk.id_clinic_scheduling 
+                                                WHERE bk.id_patient='{$_SESSION['norm']}'";
 
                                     $result = mysqli_query($koneksi->connect, $query);
                                     $row = mysqli_fetch_array($result);
                                     $name = $row['name_doctor'];
+                                    $clinic = $row['name_clinic'];
                                     $day = $row['day'];
                                     $start = $row['start'];
                                     $end = $row['end'];
@@ -141,12 +152,14 @@ $address = $row['address_patient'];
                                                             <tr>
                                                                 <th>No</th>
                                                                 <th>Name</th>
+                                                                <th>Clinic</th>
                                                                 <th>Day</th>
                                                                 <th>Time</th>
                                                             </tr>
                                                             <tr>
                                                                 <td>1.</td>
                                                                 <td><?php echo $name?></td>
+                                                                <td><?php echo $clinic?></td>
                                                                 <td><?php echo $day?></td>
                                                                 <td><?php echo $start . '-' . $end?></td>
                                                             </tr>
@@ -158,7 +171,7 @@ $address = $row['address_patient'];
                                         <tr>
                                             <td>
                                                 <center>
-                                                    <a class="btn btn-light" href="landing.php">Cancel Booking</a>
+                                                    <a class="btn btn-light" href="#">Cancel Booking</a>
                                                     <a class="btn btn-dark" href="cetak.php">Print Ticket</a>
                                                 </center>
                                             </td>
