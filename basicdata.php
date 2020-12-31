@@ -62,9 +62,7 @@ session_start();
                                                             <?php
                                                             
                                                             include("connection.php");
-                                                            $no_rm = "000001-2020";
-                                                            $_SESSION['norm'] = $no_rm;
-                                                            //$_SESSION['rm'] = "$no_rm";
+                                                            $no_rm = $_SESSION['norm'];
                                                             echo "<input value='" . $no_rm . "' type='text' class='form-control' aria-label='Sizing example input' aria-describedby='inputGroup-sizing-default' disabled>";
                                                             ?>
                                                         </div>
@@ -82,11 +80,8 @@ session_start();
                                                                 if ($result_clinic->num_rows > 0) {
                 
                                                                     while ($row = mysqli_fetch_assoc($result_clinic)) {
-                                                                        echo "<option value='" . $user_info['userid']= $row['id_clinic'] . "'>Poliklinik " .   $user_info['policlinic'] = $row['name_clinic'] . "</option>";
-                                                                        $data_clinic[]=$user_info;
+                                                                        echo "<option value='" . $row['id_clinic'] . "'>Poliklinik " .   $row['name_clinic'] . "</option>";
                                                                     }
-                                                                    
-                                                                    $_SESSION['data_poli'] = $data_clinic;
                                                                 }
                                                                
                                                                 

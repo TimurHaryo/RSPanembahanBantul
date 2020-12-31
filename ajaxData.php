@@ -16,7 +16,7 @@ switch ($action) {
         // check if result > 0
         if (mysqli_num_rows($query) > 0) {
             while ($row = mysqli_fetch_assoc($query)) {
-                echo '<option value=' .  $user_info['userid']= $row['id_doc'] . '>' . $user_info['firstname']= $row['name_doctor'] . '</option>';
+                echo '<option value=' .  $row['id_doc'] . '>' . $row['name_doctor'] . '</option>';
                 
             }
         } else {
@@ -48,8 +48,6 @@ switch ($action) {
                 echo '<td>' . $row['start'] . ' - ' . $row['end'] . '</td>';
                 echo '</tr>';
                 ++$number;
-                $time = $row['start'];                                                       
-                $_SESSION['time'] = "$time";
             }
         }
         break;
