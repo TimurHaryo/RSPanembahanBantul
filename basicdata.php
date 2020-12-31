@@ -82,7 +82,7 @@ session_start();
                                                                 if ($result_clinic->num_rows > 0) {
                 
                                                                     while ($row = mysqli_fetch_assoc($result_clinic)) {
-                                                                        echo "<option value='" . $row['name_clinic'] . "'>Poliklinik " .   $row['name_clinic'] . "</option>";
+                                                                        echo "<option value='" . $row['id_clinic'] . "'>Poliklinik " .   $row['name_clinic'] . "</option>";
                                                                         
                                                                     }
                                                                     

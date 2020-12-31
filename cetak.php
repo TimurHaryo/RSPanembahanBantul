@@ -65,26 +65,23 @@ include_once("connection.php");
                                 <div class="col">
                                     <label style="font-size: 90px;">
                                     <?php
-                                    $name_clinic = $_SESSION['ses_policlinic'];
+                                    $id_clinic = $_SESSION['ses_policlinic'];
                                     $query = "SELECT booking.id_booking, clinic.name_clinic, clinic.queue
                                     FROM booking INNER JOIN clinic_schedule
                                     ON booking.id_clinic_scheduling=clinic_schedule.id_clinic_schedule
                                     INNER JOIN clinic
                                     ON clinic_schedule.id_clinic=clinic.id_clinic
-                                    WHERE clinic.name_clinic = '$name_clinic'";
+                                    WHERE clinic.id_clinic = '$id_clinic'";
                                     $result = mysqli_query($koneksi->connect, $query);
                                     //$row = mysqli_fetch_array($result);
                                     //$antrian = isset($row['queue']) ? count($row['queue']) : 0;
                                     //$antrian = $row['queue'];
                                     
-                                    if (mysqli_num_rows($result) > 0) {
+                                    mysqli_num_rows($result);
                                         // output data of each row
                                         $row = mysqli_fetch_assoc($result);
                                         echo $row['queue'];
-                                        
-                                      } else {
-                                        echo "0";
-                                      }
+                                      
                                     ?>
                                     </label>
                                     <div class="row">

@@ -11,8 +11,13 @@ $ab = strval($a);
 $aa = "RS-";
 $kode = $aa.$ab;
 $berhasil =0;
+$queryS = "SELECT id_clinic_schedule FROM clinic_schduling WHERE id_clinic='{$_SESSION["ses_policlinic"]}' AND id_doctor='{$_SESSION['ses_doctor']}'";
+$resultS = mysqli_query($koneksi->connect, $queryS);
+$row = mysqli_fetch_array($resultS);
+$id_clinic_scheduling = $row['id_clinic_schdule'];
+//$_SESSION['ses_time'] = $id_clinic_scheduling;
 $_SESSION['kode_boking'] = $kode;
-$query = "INSERT INTO booking (id_booking, id_patient, id_clinic_scheduling) VALUES ('$kode','$id_patient',1)";
+$query = "INSERT INTO booking (id_booking, id_patient, id_clinic_scheduling) VALUES ('$kode','$id_patient',$id_clinic_scheduling)";
 $result = mysqli_query($koneksi->connect, $query);
 if ($query == TRUE) {
     echo "New record created successfully";
@@ -27,7 +32,7 @@ FROM booking INNER JOIN clinic_schedule
 ON booking.id_clinic_scheduling=clinic_schedule.id_clinic_schedule
 INNER JOIN clinic
 ON clinic_schedule.id_clinic=clinic.id_clinic
-WHERE clinic.name_clinic = '$name_clinic'";
+WHERE clinic.id_clinic = '$name_clinic'";
 $result2 = mysqli_query($koneksi->connect, $query2);
 //$no = 1;
 //$query2 = "UPDATE clinic SET queue = 1 WHERE name_clinic = '$name_clinic'";
@@ -41,11 +46,11 @@ while ($data  = mysqli_fetch_array($result2))
    $id = $data['queue'];
    
    // proses updating id dengan nilai $no
-   $query3 = "UPDATE clinic SET queue = $no WHERE name_clinic = '$name_clinic'";
+   $query3 = "UPDATE clinic SET queue = queue+1 WHERE id_clinic = '$name_clinic'";
    mysqli_query($koneksi->connect, $query3);
  
    // increment $no
-   $no++;   
+   $no++;
 } 
 // mengubah nilai auto increment menjadi $no terakhir ditambah 1
 $query2 = "ALTER TABLE clinic AUTO_INCREMENT = $no";
@@ -57,7 +62,7 @@ if ($query2 == TRUE) {
 }
 
 if ($berhasil==1){
-    header("Location: cetak.php");
+    //header("Location: cetak.php");
 }else{
     echo "Gagal Proses";
 }
