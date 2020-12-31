@@ -17,7 +17,7 @@ session_start();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.css">
     <link rel="stylesheet" href="assets/css/Navigation-Clean.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <!-- <link rel="stylesheet" href="assets/css/styles.css"> -->
 </head>
 
 
@@ -82,11 +82,11 @@ session_start();
                                                                 if ($result_clinic->num_rows > 0) {
                 
                                                                     while ($row = mysqli_fetch_assoc($result_clinic)) {
-                                                                        echo "<option value='" . $user_info['userid']= $row['id_clinic'] . "'>Poliklinik " .   $user_info['policlinic'] = $row['name_clinic'] . "</option>";
-                                                                        $data_clinic[]=$user_info;
+                                                                        echo "<option value='" . $row['name_clinic'] . "'>Poliklinik " .   $row['name_clinic'] . "</option>";
+                                                                        
                                                                     }
                                                                     
-                                                                    $_SESSION['data_poli'] = $data_clinic;
+                                                                    
                                                                 }
                                                                
                                                                 

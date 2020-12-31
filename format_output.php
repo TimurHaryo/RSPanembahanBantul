@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -78,12 +81,12 @@
                                     <tr>
                                         <td style="width: 100px;">Klinik</td>
                                         <td class="text-center" style="width: 30px;">:</td>
-                                        <td>name_clinic</td>
+                                        <td><?php echo $_SESSION['ses_policlinic']; ?></td>
                                     </tr>
                                     <tr>
                                         <td>Nama Dokter</td>
                                         <td class="text-center">:</td>
-                                        <td>name_dokter</td>
+                                        <td><?php echo $_SESSION['ses_doctor']; ?></td>
                                     </tr>
                                 </tbody>
                             </table>

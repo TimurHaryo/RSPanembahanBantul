@@ -2,24 +2,6 @@
 session_start();
 include_once("connection.php");
 //$kode = 'RS-0000003';
-
-$_SESSION['policlinic'];
-$_SESSION['doctor'];
-$_SESSION['time'];
-//echo $_SESSION['rm'] = "$rm_tem";
-//$result = mysqli_query($mysqli, "INSERT INTO patient (id_patient,name_patient,address_patient,jenis_kelain,identity_number,tempat_lahir,adult) VALUES('$kode','$nama','$kota','$negara')");
-/* $sql = "INSERT INTO booking (id_booking,id_patient,id_clinic_scheduling) VALUES('$kode','$rm_tem','null')";
-if ($conn->query($sql) === TRUE) {
-    echo "New record created successfully";
-  } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-  }
-  if (mysqli_query($conn, $sql)) {
-    echo "New record created successfully";
-  } else {
-    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-  }
-  */
   
 ?>
 <!DOCTYPE html>
@@ -41,7 +23,7 @@ if ($conn->query($sql) === TRUE) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.css">
     <link rel="stylesheet" href="assets/css/Navigation-Clean.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
+    
 </head>
 
 <body style="background: url(&quot;assets/img/pat.webp&quot;);">
@@ -74,13 +56,37 @@ if ($conn->query($sql) === TRUE) {
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col text-center"><label class="col-form-label text-center" style="font-size: 22px;"><?php echo $_SESSION['policlinic']; ?></label></div>
+                        <div class="col text-center"><label class="col-form-label text-center" style="font-size: 22px;"><?php echo $_SESSION['ses_policlinic']; ?></label></div>
                     </div>
                     <div class="row">
-                        <div class="col text-center"><label><?php echo $_SESSION['doctor']; ?></label><br>
-                        <label><?php echo $_SESSION['time']; ?></label>
+                        <div class="col text-center"><label><?php echo $_SESSION['ses_doctor']; ?></label><br>
+                        <label><?php echo $_SESSION['ses_time']; ?></label>
                             <div class="row">
-                                <div class="col"><label style="font-size: 90px;">1</label>
+                                <div class="col">
+                                    <label style="font-size: 90px;">
+                                    <?php
+                                    $name_clinic = $_SESSION['ses_policlinic'];
+                                    $query = "SELECT booking.id_booking, clinic.name_clinic, clinic.queue
+                                    FROM booking INNER JOIN clinic_schedule
+                                    ON booking.id_clinic_scheduling=clinic_schedule.id_clinic_schedule
+                                    INNER JOIN clinic
+                                    ON clinic_schedule.id_clinic=clinic.id_clinic
+                                    WHERE clinic.name_clinic = '$name_clinic'";
+                                    $result = mysqli_query($koneksi->connect, $query);
+                                    //$row = mysqli_fetch_array($result);
+                                    //$antrian = isset($row['queue']) ? count($row['queue']) : 0;
+                                    //$antrian = $row['queue'];
+                                    
+                                    if (mysqli_num_rows($result) > 0) {
+                                        // output data of each row
+                                        $row = mysqli_fetch_assoc($result);
+                                        echo $row['queue'];
+                                        
+                                      } else {
+                                        echo "0";
+                                      }
+                                    ?>
+                                    </label>
                                     <div class="row">
                                         <div class="col">
                                         <?php 
@@ -89,7 +95,7 @@ if ($conn->query($sql) === TRUE) {
                                             if (!file_exists($tempdir))
                                                mkdir($tempdir);
                                             //isi qrcode jika di scan
-                                            $queue = $_SESSION['norm'];
+                                            $queue = $_SESSION['kode_boking'];
                                             $codeContents =$queue; 
                                             QRcode::png($codeContents, $tempdir.'007_4.png', QR_ECLEVEL_L, 7, 2);
                                             
@@ -105,10 +111,10 @@ if ($conn->query($sql) === TRUE) {
                                                             <div class="jumbotron" style="padding: 4px;border-radius: 30px;margin: -30px;">
                                                                 <div class="row">
                                                                     <div class="col text-left" style="margin: 10px;">
-                                                                        <h5>Ketentuan Pendaftaran</h5>
-                                                                        <p style="padding: 0px;margin-bottom: 0px;">- 1 Test</p>
-                                                                        <p style="padding: 0px;margin-bottom: 0px;">- 2&nbsp;</p>
-                                                                        <p style="padding: 0px;">- 3</p>
+                                                                    <h5>Ketentuan Pendaftaran</h5>
+                                                                    <p style="padding: 0px;margin-bottom: 0px;">- 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                                                                    <p style="padding: 0px;margin-bottom: 0px;">- 2 Nec sagittis aliquam malesuada bibendum arcu vitae elementum. </p>
+                                                                    <p style="padding: 0px;">- 3 Enim lobortis scelerisque fermentum dui faucibus in. </p>
                                                                     </div>
                                                                     <div class="col-xl-2 offset-xl-0 d-xl-flex justify-content-xl-center align-items-xl-center"><img class="tada animated infinite" src="assets/img/rs%20logo.png" style="width: 92px;" loading="auto"></div>
                                                                     <div class="col-xl-2 align-self-end"><button class="btn btn-primary" type="button" style="background: rgb(24,225,255);border-style: none;color: rgb(0,0,0);font-weight: 600;margin: 12px;">Selesai</button></div>
