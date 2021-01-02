@@ -34,7 +34,7 @@ $address = $row['address_patient'];
 
 <body style="background: url(&quot;assets/img/pat.webp&quot;);">
     <header>
-    <nav class="navbar navbar-light navbar-expand-md navigation-clean" style="background: linear-gradient(91deg, rgb(32,242,255) 0%, rgb(0,178,254) 100%), rgb(9,222,235);height: 61px;">
+    <nav class="navbar navbar-light navbar-expand-md navigation-clean" style="background: #008080;height: 61px;">
         <div class="container"><a class="navbar-brand" href="#" style="color: rgb(255,255,255);text-align: center;font-family: Allerta, sans-serif;border-style: none;text-shadow: 2px 0px 3px rgb(2,182,255);"><img class="img-fluid swing animated" src="assets/img/rs%20logo.png" style="width: 30px;margin: 0 10;filter: grayscale(0%);border-style: none;">RSUD Panembahan Senopati</a>
             <button
                 data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
@@ -51,7 +51,7 @@ $address = $row['address_patient'];
     <main>
     <div class="text-center d-flex d-xl-flex justify-content-center order-1 justify-content-xl-center" style="align-content: center;">
         <div class="container text-left" style="margin: 21px;">
-            <div class="row" style="background: #18e1ff;border-style: none;border-radius: 30px;margin: 20px 0 0 0;box-shadow: 20px 40px 7px 3px rgba(33,37,41,0.7);">
+            <div class="row" style="background: #f0f4f8;border-style: none;border-radius: 30px;margin: 20px 0 0 0;box-shadow: 20px 40px 7px 3px rgba(33,37,41,0.7);">
                 <div class="col-md-12">
                     <h4 class="text-center bounce animated" style="margin-top: 20px;">Booking Data Confirmation</h4>
                     <h5 class="text-center flash animated" style="margin: 10px 0 50px 0;">Registered Patient</h5>
@@ -72,7 +72,12 @@ $address = $row['address_patient'];
                                             <td>
                                                 <?php 
                                                 $clinic = $_REQUEST['clinic'];
-                                                echo $clinic;
+                                                $queryC = "SELECT * FROM clinic Where id_clinic=$clinic";
+                                                $resultC = mysqli_query($koneksi->connect, $queryC);
+                                                $row = mysqli_fetch_array($resultC);
+                                                $name_clinic = $row['name_clinic'];
+                                                echo $name_clinic;
+                                                $_SESSION["print_policlinic"] = $name_clinic;
                                                 $_SESSION["ses_policlinic"] = $clinic;
                                                 ?>
                                             </td>
@@ -86,7 +91,12 @@ $address = $row['address_patient'];
                                             <td>
                                                 <?php
                                                    $doctor = $_REQUEST['doctor'];
-                                                   echo $doctor;
+                                                   $queryD = "SELECT * FROM doctor Where id_doctor=$doctor";
+                                                   $resultD = mysqli_query($koneksi->connect, $queryD);
+                                                   $row = mysqli_fetch_array($resultD);
+                                                   $name_doctor = $row['name_doctor'];
+                                                   echo $name_doctor;
+                                                   $_SESSION["print_doctor"] = $name_doctor;
                                                    $_SESSION["ses_doctor"] = $doctor;
                                                 ?>
                                                
@@ -101,7 +111,16 @@ $address = $row['address_patient'];
                                             <td>
                                                 <?php
                                                   $time = $_REQUEST['time'];
-                                                  echo $time;
+                                                   $queryS = "SELECT * FROM schedule Where id_schedule=$time";
+                                                   $resultS = mysqli_query($koneksi->connect, $queryS);
+                                                   $row = mysqli_fetch_array($resultS);
+                                                   $day = $row['day'];
+                                                   $start = $row['start'];
+                                                   //$jadwal = $day+$start;
+                                                   echo $day;
+                                                   echo " ";
+                                                   echo $start;
+                                                   $_SESSION["print_time"] = $start;
                                                   $_SESSION["ses_time"] = $time;
                                                 ?>
                                             </td>
