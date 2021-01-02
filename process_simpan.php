@@ -14,7 +14,7 @@ $berhasil =0;
 $ide_clinic = $_SESSION["ses_policlinic"];
 $ide_doc = $_SESSION['ses_doctor'];
 $ide_time = $_SESSION["ses_time"];
-$queryS = "SELECT id_clinic_schedule FROM clinic_schedule WHERE (id_clinic=$ide_clinic) AND (id_doctor=$ide_doc) AND (id_clinic_scheduling=$ide_time)";
+$queryS = "SELECT id_clinic_schedule FROM clinic_schedule WHERE id_clinic=$ide_clinic";
 $resultS = mysqli_query($koneksi->connect, $queryS);
 $row = mysqli_fetch_array($resultS);
 $id_clinic_scheduling = $row['id_clinic_schedule'];

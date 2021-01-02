@@ -56,11 +56,11 @@ include_once("connection.php");
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col text-center"><label class="col-form-label text-center" style="font-size: 22px;"><?php echo $_SESSION['ses_policlinic']; ?></label></div>
+                        <div class="col text-center"><label class="col-form-label text-center" style="font-size: 22px;"><?php echo $_SESSION['print_policlinic']; ?></label></div>
                     </div>
                     <div class="row">
-                        <div class="col text-center"><label><?php echo $_SESSION['ses_doctor']; ?></label><br>
-                        <label><?php echo $_SESSION['ses_time']; ?></label>
+                        <div class="col text-center"><label><?php echo $_SESSION['print_doctor']; ?></label><br>
+                        <label><?php echo $_SESSION['print_time']; ?></label>
                             <div class="row">
                                 <div class="col">
                                     <label style="font-size: 90px;">
@@ -79,8 +79,8 @@ include_once("connection.php");
                                     
                                     mysqli_num_rows($result);
                                         // output data of each row
-                                        $row = mysqli_fetch_assoc($result);
-                                        echo $row['queue'];
+                                    $row = mysqli_fetch_assoc($result);
+                                    echo $row['queue'];
                                       
                                     ?>
                                     </label>
