@@ -5,7 +5,6 @@ $action = $_GET['action'];
 switch ($action) {
     case 'doctor':
         echo '<option disabled selected> Pilih Dokter </option>';
-
         // get id clinic
         $name_clinic = $_GET['clinic'];
         // query join get doctor
