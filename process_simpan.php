@@ -14,9 +14,9 @@ $berhasil =0;
 $ide_clinic = $_SESSION["ses_policlinic"];
 $ide_doc = $_SESSION['ses_doctor'];
 $ide_time = $_SESSION["ses_time"];
-$queryS = "SELECT id_clinic_schedule FROM clinic_schedule WHERE (id_clinic=$ide_clinic) AND (id_doctor=$ide_doc) AND (id_clinic_scheduling=$ide_time)";
+$queryS = "SELECT id_clinic_schedule FROM clinic_schedule WHERE id_clinic = '$ide_clinic' AND id_doctor = '$ide_doc' AND id_schedule = '$ide_time'";
 $resultS = mysqli_query($koneksi->connect, $queryS);
-$row = mysqli_fetch_array($resultS);
+$row = mysqli_fetch_assoc($resultS);
 $id_clinic_scheduling = $row['id_clinic_schedule'];
 echo $id_clinic_scheduling;
 //$_SESSION['ses_time'] = $id_clinic_scheduling;
@@ -42,23 +42,13 @@ $result2 = mysqli_query($koneksi->connect, $query2);
 //$query2 = "UPDATE clinic SET queue = 1 WHERE name_clinic = '$name_clinic'";
 //mysqli_query($koneksi->connect, $query2);
 
-  // nilai awal increment
- $no = 1;
-while ($data  = mysqli_fetch_array($result2))
-{
-   // membaca id dari record yang tersisa dalam tabel
-   $id = $data['queue'];
-   
-   // proses updating id dengan nilai $no
-   $query3 = "UPDATE clinic SET queue = queue+1 WHERE id_clinic = '$name_clinic'";
-   mysqli_query($koneksi->connect, $query3);
- 
-   // increment $no
-   $no++;
-} 
+// proses updating id dengan nilai $no
+$query3 = "UPDATE clinic SET queue = queue+1 WHERE id_clinic = '$ide_clinic'";
+mysqli_query($koneksi->connect, $query3);
+
 // mengubah nilai auto increment menjadi $no terakhir ditambah 1
-$query2 = "ALTER TABLE clinic AUTO_INCREMENT = $no";
-mysqli_query($koneksi->connect, $query2);
+// $query2 = "ALTER TABLE clinic AUTO_INCREMENT = $no";
+// mysqli_query($koneksi->connect, $query2);
 if ($query2 == TRUE) {
     echo " Queue created successfully";
   } else {
