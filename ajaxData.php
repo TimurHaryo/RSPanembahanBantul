@@ -6,7 +6,6 @@ $action = $_GET['action'];
 switch ($action) {
     case 'doctor':
         echo '<option disabled selected> Pilih Dokter </option>';
-
         // get id clinic
         $id_clinic = $_GET['clinic'];
         // query join get doctor
@@ -48,8 +47,6 @@ switch ($action) {
                 echo '<td>' . $row['start'] . ' - ' . $row['end'] . '</td>';
                 echo '</tr>';
                 ++$number;
-                $time = $row['start'];                                                       
-                $_SESSION['time'] = "$time";
             }
         }
         break;
