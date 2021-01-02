@@ -23,9 +23,21 @@ $id_clinic_scheduling = $row['id_clinic_schedule'];
 
 echo $id_clinic_scheduling;
 
+$id_clinic = $_SESSION['ses_policlinic'];
+
+$query3 = "UPDATE clinic SET queue = queue+1 WHERE id_clinic = '$ide_clinic'";
+mysqli_query($koneksi->connect, $query3);
+
+$query2 = "SELECT queue FROM clinic WHERE id_clinic = '$id_clinic'";
+
+$result2 = mysqli_query($koneksi->connect, $query2);
+$queue_data = mysqli_fetch_array($result2);
+$patient_data = $queue_data['queue'];
+
 $_SESSION['kode_boking'] = $kode;
-$query = "INSERT INTO booking (id_booking, id_patient, id_clinic_scheduling) VALUES ('$kode','$id_patient',$id_clinic_scheduling)";
+$query = "INSERT INTO booking (id_booking, id_patient, id_clinic_scheduling, patient_queue) VALUES ('$kode','$id_patient',$id_clinic_scheduling, $patient_data)";
 $result = mysqli_query($koneksi->connect, $query);
+
 if ($query == TRUE) {
     echo "New record created successfully";
     $berhasil = 1;
@@ -33,20 +45,8 @@ if ($query == TRUE) {
     echo "Error: " . $query . "<br>";
 }
 
-$name_clinic = $_SESSION['ses_policlinic'];
-$query2 = "SELECT booking.id_booking, clinic.name_clinic, clinic.queue
-        FROM booking INNER JOIN clinic_schedule
-        ON booking.id_clinic_scheduling=clinic_schedule.id_clinic_schedule
-        INNER JOIN clinic
-        ON clinic_schedule.id_clinic=clinic.id_clinic
-        WHERE clinic.id_clinic = '$name_clinic'";
-
-$result2 = mysqli_query($koneksi->connect, $query2);
-$query3 = "UPDATE clinic SET queue = queue+1 WHERE id_clinic = '$ide_clinic'";
-mysqli_query($koneksi->connect, $query3);
-
 if ($query2 == TRUE) {
-    echo " Queue created successfully";
+    echo "Queue created successfully";
   } else {
     echo "Error Queue: " . $query2 . "<br>";
 }
