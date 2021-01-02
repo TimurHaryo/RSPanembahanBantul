@@ -16,7 +16,7 @@ switch ($action) {
         // check if result > 0
         if (mysqli_num_rows($query) > 0) {
             while ($row = mysqli_fetch_assoc($query)) {
-                echo '<option value=' .  $user_info['userid']= $row['id_doc'] . '>' . $user_info['firstname']= $row['name_doctor'] . '</option>';
+                echo '<option value=' . $row['id_doc'] . '>' . $row['name_doctor'] . '</option>';
                 
             }
         } else {
