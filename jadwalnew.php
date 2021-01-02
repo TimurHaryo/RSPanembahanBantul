@@ -14,11 +14,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.css">
     <link rel="stylesheet" href="assets/css/Navigation-Clean.css">
-    <!-- <link rel="stylesheet" href="assets/css/styles.css"> -->
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
 <body style="background: url(&quot;assets/img/pat.webp&quot;);">
-
     <header></header>
 
     <nav class="navbar navbar-light navbar-expand-md navigation-clean" style="background: rgb(0,128,128) 0%; height: 61px;">
@@ -26,6 +25,8 @@
                 Senopati</a>
         </div>
     </nav>
+
+
 
     <div class="row">
         <div class="col-md-10" style="background-color: white; width: 1300px; height:800px; margin-top:100px; margin-bottom:100px; padding:24px;">
@@ -96,8 +97,32 @@
             </div>
         </div>
     </div>
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
@@ -105,7 +130,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.js"></script>
     <script src="assets/js/Advanced-NavBar---Multi-dropdown.js"></script>
     <script src="assets/js/Advanced-NavBar---Multi-dropdown.js"></script>
-    
+
     <script type="text/javascript">
         $('#clinic').on('change', function() {
             var clinic = $(this).val();
