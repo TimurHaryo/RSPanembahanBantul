@@ -10,19 +10,7 @@ $name = $row['name_patient'];
 $tgl_lahir = $row['tgl_lahir'];
 $idnum = $row['identity_number'];
 $address = $row['address_patient'];
-/* foreach ($_SESSION['data_poli'] as $user_info){     
-    echo $user_info['userid']."<br>"; 
-    echo $user_info['policlinic']."<br>";
-}
-print_r($_SESSION); */
-//print_r($_SESSION['data_poli']);
-$policlinic = "Akupuntur";
-$doctor = "dr. Sagiran";
-$time = "08:00:00 - 14:00:00";
-$_SESSION['norm'];
-$_SESSION['policlinic'] = "$policlinic";
-$_SESSION['doctor'] = "$doctor";
-$_SESSION['time'] = "$time";
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -83,24 +71,9 @@ $_SESSION['time'] = "$time";
                                             <td class="text-right" style="color: rgb(72,72,72);">:</td>
                                             <td>
                                                 <?php 
-                                                $clinic_ajax = $_REQUEST['clinic'];
-                                                //echo $clinic_ajax;
-                                                if ($clinic_ajax == 13){
-                                                    echo "Poliklinik Akupuntur";
-                                                }elseif($clinic_ajax == 14){
-                                                    echo "Poliklinik Bedah Anak";
-                                                }elseif($clinic_ajax == 15){
-                                                    echo "Poliklinik Bedah Digestive";
-                                                }elseif($clinic_ajax == 16){
-                                                    echo "Poliklinik Poliklinik Bedah Mulut";
-                                                }
-                                                elseif($clinic_ajax == 17){
-                                                    echo "Bedah Orthopedi & Traumatologi";
-                                                }
-                                                    else{
-                                                    echo "Poliklinik Null";
-                                                }
-                                                //echo $_SESSION["policlinic"]; 
+                                                $clinic = $_REQUEST['clinic'];
+                                                echo $clinic;
+                                                $_SESSION["ses_policlinic"] = $clinic;
                                                 ?>
                                             </td>
                                         </tr>
@@ -111,8 +84,12 @@ $_SESSION['time'] = "$time";
                                             <td style="color: rgb(72,72,72);">Doctor</td>
                                             <td class="text-right" style="color: rgb(72,72,72);">:</td>
                                             <td>
-                                                <?php// echo $_POST["doctor"]; ?>
-                                                <?php echo $_SESSION["doctor"]; ?>
+                                                <?php
+                                                   $doctor = $_REQUEST['doctor'];
+                                                   echo $doctor;
+                                                   $_SESSION["ses_doctor"] = $doctor;
+                                                ?>
+                                               
                                             </td>
                                         </tr>
                                         <tr>
@@ -122,8 +99,11 @@ $_SESSION['time'] = "$time";
                                             <td style="color: rgb(72,72,72);">Time</td>
                                             <td class="text-right" style="color: rgb(72,72,72);">:</td>
                                             <td>
-                                                <?php// echo $_POST["time"]; ?>
-                                                <?php echo $_SESSION["time"]; ?>
+                                                <?php
+                                                  $time = $_REQUEST['time'];
+                                                  echo $time;
+                                                  $_SESSION["ses_time"] = $time;
+                                                ?>
                                             </td>
                                         </tr>
                                         <tr>
@@ -144,7 +124,7 @@ $_SESSION['time'] = "$time";
                                         <tr>
                                             <td style="color: rgb(72,72,72);">Number</td>
                                             <td class="text-right" style="color: rgb(72,72,72);">:</td>
-                                            <td>nomer bpjs</td>
+                                            <td>-</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -158,7 +138,7 @@ $_SESSION['time'] = "$time";
                                     </button>
                                     </a>
                                     <button class="btn btn-primary" type="button" style="background: #dfe8ee;color: rgb(0,0,0);font-weight: bold;border-style: none;">
-                                        <a href="cetak.php"><font style="color: rgb(0,0,0)">Lanjutkan</font></a>
+                                        <a href="process_simpan.php"><font style="color: rgb(0,0,0)">Lanjutkan</font></a>
                                     </button>
                                     </div>
                                 </div>
@@ -169,9 +149,9 @@ $_SESSION['time'] = "$time";
                                         <div class="row">
                                             <div class="col" style="margin: 10px;">
                                                 <h5>Ketentuan Pendaftaran</h5>
-                                                <p style="padding: 0px;margin-bottom: 0px;">- 1 Test </p>
-                                                <p style="padding: 0px;margin-bottom: 0px;">- 2&nbsp;</p>
-                                                <p style="padding: 0px;">- 3</p>
+                                                <p style="padding: 0px;margin-bottom: 0px;">- 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                                                <p style="padding: 0px;margin-bottom: 0px;">- 2 Nec sagittis aliquam malesuada bibendum arcu vitae elementum. </p>
+                                                <p style="padding: 0px;">- 3 Enim lobortis scelerisque fermentum dui faucibus in. </p>
                                             </div>
                                             <div class="col-xl-4 d-xl-flex justify-content-xl-center align-items-xl-center">
                                                 <div class="btn-group" role="group"></div><img class="tada animated infinite" src="assets/img/rs%20logo.png" style="width: 92px;" loading="auto"></div>
@@ -192,20 +172,7 @@ $_SESSION['time'] = "$time";
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.js"></script>
     <script src="assets/js/Advanced-NavBar---Multi-dropdown.js"></script>
     <script>
-       $('#clinic').on('change', function() {
-            var clinic = $(this).val();
-
-            $.ajax({
-                url: 'ajaxData.php?action=doctor',
-                type: 'GET',
-                data: {
-                    clinic: clinic
-                },
-                success: function(data) {
-                    $('#doctor').html(data)
-                }
-            })
-        });
+      
     </script>
 </body>
 
