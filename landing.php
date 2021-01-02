@@ -16,11 +16,11 @@ if (isset($_POST["daftar"]))
             $_SESSION["boking"] = true;
             $_SESSION["norm"] = $norm;
 
-            header("location:dashboard.php"); //progres 4
+            header("location:dashboard.php");
             exit;
         } else {
             $_SESSION["norm"] = $norm;
-            header("location:basicdata.php"); //progres 4
+            header("location:basicdata.php");
         }
     } else {
         $error = true;
@@ -160,21 +160,19 @@ if (isset($_POST["daftar"]))
 
     <div class="footer-basic" style="margin-top: 50px; background: url(&quot;assets/img/pat.webp&quot;);" >
         <footer>
-            <div class="social">
+            <!-- <div class="social">
                 <a href="https://www.instagram.com/rsudps/">
                     <i class="icon ion-social-instagram"></i>
                 </a>
                 <a href="#">
                     <i class="icon ion-android-mail"></i>
-                    
-
                 </a>
                 <a href="#">
                     <i class="icon ion-social-twitter"></i>
                 </a>
                     <a href="#"><i class="icon ion-social-facebook"></i>
                 </a>
-            </div>
+            </div> -->
             <!-- <ul class="list-inline">
                 <li class="list-inline-item"><a href="#">Home</a></li>
                 <li class="list-inline-item"><a href="#">Services</a></li>
