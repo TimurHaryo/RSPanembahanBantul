@@ -61,8 +61,10 @@
                                     if (isset($_POST["clear"])) {
 
                                         $del_query = "DELETE FROM booking";
+                                        $upd_query = "UPDATE clinic set clinic.queue = 0 where clinic.queue != 0";
     
-                                        $query = mysqli_query($koneksi->connect, $del_query);
+                                        $query_del = mysqli_query($koneksi->connect, $del_query);
+                                        $query_upd = mysqli_query($koneksi->connect, $upd_query);
     
                                     }
 
