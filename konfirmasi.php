@@ -51,7 +51,7 @@ $address = $row['address_patient'];
     <main>
     <div class="text-center d-flex d-xl-flex justify-content-center order-1 justify-content-xl-center" style="align-content: center;">
         <div class="container text-left" style="margin: 21px;">
-            <div class="row" style="background: #f0f4f8;border-style: none;border-radius: 30px;margin: 20px 0 0 0;box-shadow: 20px 40px 7px 3px rgba(33,37,41,0.7);">
+            <div class="row" style="background: #edf6f9;border-style: none;border-radius: 30px;margin: 20px 0 0 0;box-shadow: 20px 40px 7px 3px rgba(33,37,41,0.7);">
                 <div class="col-md-12">
                     <h4 class="text-center bounce animated" style="margin-top: 20px;">Booking Data Confirmation</h4>
                     <h5 class="text-center flash animated" style="margin: 10px 0 50px 0;">Registered Patient</h5>
