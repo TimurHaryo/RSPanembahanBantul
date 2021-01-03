@@ -26,8 +26,6 @@
         </div>
     </nav>
 
-
-
     <div class="row">
         <div class="col-md-10" style="background-color: white; width: 1300px; height:800px; margin-top:100px; margin-bottom:100px; padding:24px;">
             <?php include("connection.php"); ?>
@@ -60,9 +58,19 @@
 
                 <div class=" col d-inline-flex flex-row-reverse" style="margin-right: 30px;">
                     <div class="form-group" style="margin-left: 30px;">
-                        <label for="doctor">Dokter</label>
-                        <select class="form-control" id="doctor" style="width: 350px; height:35px; border-radius:6px; background: linear-gradient(180deg, #FFFFFF 21.23%, rgba(173, 172, 172, 0) 100%);">
-                            <option disabled selected> Pilih Dokter </option>
+                        <label for="doctorlist">Dokter</label>
+                        <select class="form-control" id="doctorlist" style="width: 350px; height:35px; border-radius:6px; background: linear-gradient(180deg, #FFFFFF 21.23%, rgba(173, 172, 172, 0) 100%);">
+                            <option disabled selected> Pilih Dokter </option>                            
+                            <?php
+                            $query_get_doctor_list = "SELECT * FROM doctor";
+                            $result_doctor_list = mysqli_query($koneksi->connect, $query_get_doctor_list);
+                            if ($result_doctor_list->num_rows > 0) {
+                                while ($row = mysqli_fetch_assoc($result_doctor_list)) {
+                                    echo "<option value='" . $row['id_doctor'] . "'>Dokter " . $row['name_doctor'] . "</option>";
+                                }
+                            }
+                            mysqli_close($koneksi->connect);
+                            ?>
                         </select>
                     </div>
                 </div>
@@ -99,31 +107,6 @@
     </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bs-init.js"></script>
@@ -132,6 +115,7 @@
     <script src="assets/js/Advanced-NavBar---Multi-dropdown.js"></script>
 
     <script type="text/javascript">
+
         $('#clinic').on('change', function() {
             var clinic = $(this).val();
 
@@ -161,19 +145,35 @@
             })
         });
 
-        $('#doctor').on('change', function() {
-            var doctor = $(this).val();
+        $('#doctorlist').on('change', function() {
+            var doctorlist = $(this).val();
             $.ajax({
-                url: 'ajaxData.php?action=scheduleTime',
+                url: 'ajaxData.php?action=doctorlist',
                 type: 'GET',
                 data: {
-                    doctor: doctor
+                    doctorlist: doctorlist
                 },
                 success: function(data) {
-                    $('#scheduleTime').html(data)
+                    $('#doctorlist').html(data)
                 }
             })
         });
+
+        $('#doctorlist').on('change', function() {
+            var doctorlist = $(this).val();
+            $.ajax({
+                url: 'ajaxData.php?action=doctorschedule',
+                type: 'GET',
+                data: {
+                    doctorlist: doctorlist
+                },
+                success: function(data) {
+                    $('#doctorschedule').html(data)
+                }
+            })
+        });
+
+        
     </script>
 
 </body>
