@@ -29,6 +29,7 @@ $address = $row['address_patient'];
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.css">
     <link rel="stylesheet" href="assets/css/Navigation-Clean.css">
     <link rel="stylesheet" href="assets/css/styles.css">
+    
 </head>
 <body style="background: url(&quot;assets/img/pat.webp&quot;);">
     <header></header>
@@ -184,11 +185,51 @@ $address = $row['address_patient'];
                                         <tr>
                                             <td>
                                                 <center>
-                                                    <a class="btn btn-light" href="deletebooking.php?id=<?php echo $row['id_booking']?>">Cancel Booking</a>
+                                                    <!-- <a class="btn btn-light" href="deletebooking.php?id=<?php echo $row['id_booking']?>">Cancel Booking</a> -->
+                                                    <!-- <a class="btn btn-light" data-toggle="modal" data-target="#exampleModalCenter">Cancel Booking</a> -->
+                                                    
+                                                    <div class="container">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                        <button class="btn btn-light btn-md btn-block" id="btn" data-toggle="modal" data-target="#exampleModalCenter">Cancel Booking</button>
+                                                        </div>
+                                                        
+                                                    <!-- Button trigger modal
+                                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                                                    Launch demo modal
+                                                    </button> -->
+
+                                                    <!-- Modal -->
+                                                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                                        <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h6 class="modal-title" id="exampleModalLongTitle">Reminder!</h6>
+                                                            <a class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <h4>Are you sure to delete your booking data?</h4> 
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <a class="btn btn-danger" data-dismiss="modal">Cancel</a>
+                                                            <a class="btn btn-primary" href="deletebooking.php?id=<?php echo $row['id_booking']?>">Yes, delete it!</a>
+                                                        </div>
+                                                        </div>
+                                                    </div>
+                                                    </div>
+
                                                     <?php
                                                     }
                                                     ?>
-                                                    <a class="btn btn-dark" href="cetak.php">Print Ticket</a>
+                                                    <div class="col-md-4">
+                                                        <button class="btn btn-dark btn-md btn-block" type="submit">
+                                                        <a href="cetak.php" style="color: #ffff;">Print Ticket</a>
+                                                        </button>
+                                                        </div>
+                                                    </div>
+                                                    <!-- <a class="btn btn-dark" href="cetak.php">Print Ticket</a> -->
                                                 </center>
                                             </td>
                                         </tr>
@@ -209,7 +250,6 @@ $address = $row['address_patient'];
                                         <p style="padding: 0px;">- 3</p>
                                     </div>
                                     <div class="col-xl-4 d-xl-flex justify-content-xl-center align-items-xl-center">
-                                        <div class="btn-group" role="group"></div>
                                         <img class="tada animated infinite" src="assets/img/rs%20logo.png" style="width: 92px;" loading="auto">
                                     </div>
                                 </div>
@@ -220,5 +260,52 @@ $address = $row['address_patient'];
             </div>
         </div>
     </div>
+    
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.js"></script>
+    <script src="assets/js/Advanced-NavBar---Multi-dropdown.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+    <!-- <script>
+    const btn = document.getElementById('btn');
+    const swalWithBootstrapButtons = Swal.mixin({
+    customClass: {
+        confirmButton: 'btn btn-success',
+        cancelButton: 'btn btn-danger'
+    },
+    buttonsStyling: false
+    })
+    btn.addEventListener('click', function(){
+        swalWithBootstrapButtons.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, delete it!',
+        cancelButtonText: 'No, cancel!',
+        reverseButtons: true
+        }).then((result) => {
+        if (result.isConfirmed) {
+            swalWithBootstrapButtons.fire(
+            'Deleted!',
+            'Your file has been deleted.',
+            'success'
+            )
+        } else if (
+            /* Read more about handling dismissals below */
+            result.dismiss === Swal.DismissReason.cancel
+        ) {
+            swalWithBootstrapButtons.fire(
+            'Cancelled',
+            'Your imaginary file is safe :)',
+            'error'
+            )
+        }
+        })
+    });
+    </script> -->
+
 </body>
 </html>
