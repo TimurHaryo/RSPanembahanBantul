@@ -96,7 +96,7 @@ $id_booking = $row['id_booking'];
                                         ?>
                                             <div  style="margin: 0px 0px 30px 0px;"></div>
                                             <div class="row">
-                                                <div class="col"><button class="btn btn-light" type="button" style="margin: 0px 0px 50px 0px;width: 88px;height: 39px;"><a href="process_output.php">Print</a></button>
+                                                <div class="col"><button class="btn btn-light" type="button" style="background: rgb(24,225,255);color:#fff;margin: 0px 0px 50px 0px;width: 88px;height: 39px;"><a href="process_output.php">Print</a></button>
                                                     <div class="row d-inline" style="border-radius: 0;">
                                                         <div class="col">
                                                             <div class="jumbotron" style="padding: 4px;border-radius: 30px;margin: -30px;">
@@ -108,7 +108,7 @@ $id_booking = $row['id_booking'];
                                                                     <p style="padding: 0px;">- Enim lobortis scelerisque fermentum dui faucibus in. </p>
                                                                     </div>
                                                                     <div class="col-xl-2 offset-xl-0 d-xl-flex justify-content-xl-center align-items-xl-center"><img class="tada animated infinite" src="assets/img/rs%20logo.png" style="width: 92px;" loading="auto"></div>
-                                                                    <div class="col-xl-2 align-self-end"><button class="btn btn-primary" type="button" style="background: rgb(24,225,255);border-style: none;color: rgb(0,0,0);font-weight: 600;margin: 12px;">Selesai</button></div>
+                                                                    <div class="col-xl-2 align-self-end"><button class="btn btn-primary" data-toggle="modal" data-target="#logout" type="button" style="background: rgb(24,225,255);border-style: none;color: rgb(0,0,0);font-weight: 600;margin: 12px;">Selesai</button></div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -124,6 +124,26 @@ $id_booking = $row['id_booking'];
                 </div>
             </div>
         
+        </div>
+    </div>
+    <div class="modal fade" id="logout" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="background: #008080">
+                    <h5 class="modal-title"  style="color:#FFF">Logout</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Anda yakin ingin logout</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
+                    <a href="logout.php"><button type="button" class="btn btn-primary" style="background: rgb(24,225,255);border-style: none;color: rgb(0,0,0);font-weight: 600">Ya</button></a>
+                </div>
+            </div>
         </div>
     </div>
     </main>
