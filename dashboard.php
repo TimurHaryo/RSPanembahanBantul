@@ -99,14 +99,14 @@ $address = $row['address_patient'];
                                                 </div>
                                             </td>
                                         </tr>
-                                        <tr>
+                                        <!-- <tr>
                                             <td style="border: 0px;color: rgb(72,72,72);">
                                                 Insurance
                                                 <div class="input-group input-group-sm mb-3">
                                                     <input type="text" class="form-control" value="BPJS/Umum" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" disabled>
                                                 </div>
                                             </td>
-                                        </tr>
+                                        </tr> -->
                                     </tbody>
                                 </table>
                             </div>

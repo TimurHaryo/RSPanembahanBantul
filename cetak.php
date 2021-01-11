@@ -137,7 +137,7 @@ $id_booking = $row['id_booking'];
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>Anda yakin ingin logout</p>
+                    <p>Anda yakin ingin kembali ke halaman utama?</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>

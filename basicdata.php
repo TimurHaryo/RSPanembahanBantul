@@ -112,17 +112,17 @@ session_start();
                                                         </div>
                                                     </td>
                                                 </tr>
-                                                <tr>
+                                                <!-- <tr>
                                                     <td style="border: 0px;color: rgb(72,72,72);">
                                                         <div class="form-group">
                                                             <label for="sel1">Insurance</label>
-                                                            <select class="form-control" id="sel1" name="insurance">
+                                                            <select class="form-control" id="sel1" name="insurance" type="hidden">
                                                                 <option>Umum</option>
                                                                 <option>BPJS</option>
                                                             </select>
                                                         </div>
                                                     </td>
-                                                </tr>
+                                                </tr> -->
                                             </tbody>
                                         </table>
                                     </div>

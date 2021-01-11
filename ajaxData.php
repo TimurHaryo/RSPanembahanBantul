@@ -44,7 +44,7 @@ switch ($action) {
                 echo '<tr>';
                 echo '<td>' . $number . '.</td>';
                 echo '<td>' . $row['doc_name'] . '</td>';
-                echo '<td>' . $row['day'] . '</td>';
+                echo '<td>' . ucfirst($row['day']) . '</td>';
                 echo '<td>' . $row['start'] . ' - ' . $row['end'] . '</td>';
                 echo '</tr>';
                 ++$number;

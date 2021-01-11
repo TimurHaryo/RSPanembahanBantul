@@ -135,7 +135,7 @@ $address = $row['address_patient'];
                                             <td class="text-right" style="color: rgb(72,72,72);">:</td>
                                             <td><?php echo $address ?></td>
                                         </tr>
-                                        <tr>
+                                        <!-- <tr>
                                             <td style="color: rgb(72,72,72);">Insurance</td>
                                             <td class="text-right" style="color: rgb(72,72,72);">:</td>
                                             <td><?php echo $_POST["insurance"]; ?></td>
@@ -144,7 +144,7 @@ $address = $row['address_patient'];
                                             <td style="color: rgb(72,72,72);">Number</td>
                                             <td class="text-right" style="color: rgb(72,72,72);">:</td>
                                             <td>-</td>
-                                        </tr>
+                                        </tr> -->
                                     </tbody>
                                 </table>
                             </div>
