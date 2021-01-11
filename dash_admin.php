@@ -31,7 +31,7 @@
     <div class="row">
         <div class="col-md-10" style="background-color: white;  height:800px; margin-top:100px; margin-bottom:100px;">
             <div class="rows">
-                <h4 style="color:black; text-align:center; margin-top:50px;">BOOKING RECORDS </h4>
+                <h4 style="color:black; text-align:center; margin-top:50px;">DATA PENDAFTARAN</h4>
             </div>
 
             <div class="row" style=" margin-top:70px;">
@@ -39,7 +39,7 @@
                     <div class="panel panel default">
 
                         <form action="" method="post">
-                            <button type="submit" name="clear" class="btn btn-danger btn-lg btn-block" style="margin-bottom:50px;">CLEAR</button>
+                            <button type="submit" name="clear" class="btn btn-danger btn-lg btn-block" style="margin-bottom:50px;">HAPUS SEMUA</button>
                         </form>
 
                         <div class="panel-body">
@@ -47,10 +47,10 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>ID Booking</th>
-                                        <th>No Rekam Medis</th>
+                                        <th>ID Pendaftaran</th>
+                                        <th>Nomor Rekam Medis</th>
                                         <th>Klinik</th>
-                                        <th>Queue</th>
+                                        <th>Antrian</th>
                                     </tr>
                                 </thead>
                                 <tbody id="records" >

@@ -52,8 +52,8 @@ $address = $row['address_patient'];
         <div class="container text-left" style="margin: 31px;">
             <div class="row" style="background: #15dcff;border-style: none;border-radius: 30px;margin: 40px 0 0 0;box-shadow: 20px 40px 7px 3px rgba(33,37,41,0.7);">
                 <div class="col-md-12">
-                    <h4 class="text-center bounce animated" style="margin-top: 20px;">Patient Profile Data</h4>
-                    <h5 class="text-center flash animated" style="margin: 10px 0 50px 0;">Registered Patient</h5>
+                    <h4 class="text-center bounce animated" style="margin-top: 20px;">Data Pasien</h4>
+                    <h5 class="text-center flash animated" style="margin: 10px 0 50px 0;">Pasien Terdaftar</h5>
                     <br><br>
                     <div class="row order-1">
                         <div class="col">
@@ -62,7 +62,7 @@ $address = $row['address_patient'];
                                     <tbody style="border: none;">
                                         <tr>
                                             <td style="border: 0px;color: rgb(72,72,72);">
-                                                Name
+                                                Nama
                                                 <div class="input-group input-group-sm mb-3">
                                                     <input type="text" class="form-control" value="<?php echo $row['name_patient']?>" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" disabled>
                                                 </div>
@@ -70,7 +70,7 @@ $address = $row['address_patient'];
                                         </tr>
                                         <tr>
                                             <td style="border: 0px;color: rgb(72,72,72);">
-                                                Medical Number
+                                                Nomor Rekam Medis
                                                 <div class="input-group input-group-sm mb-3">
                                                     <input type="text" class="form-control" value="<?php echo $row['id_patient']?>" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" disabled>
                                                 </div>
@@ -86,7 +86,7 @@ $address = $row['address_patient'];
                                         </tr>
                                         <tr>
                                             <td style="border: 0px;color: rgb(72,72,72);">
-                                                Birth Date
+                                                Tanggal Lahir
                                                 <div class="input-group input-group-sm mb-3">
                                                     <input type="text" class="form-control" value="<?php echo $row['tgl_lahir']?>" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" disabled>
                                                 </div>
@@ -94,20 +94,12 @@ $address = $row['address_patient'];
                                         </tr>
                                         <tr>
                                             <td style="border: 0px;color: rgb(72,72,72);">
-                                                Address
+                                                Alamat
                                                 <div class="input-group input-group-sm mb-3">
                                                     <input type="text" class="form-control" value="<?php echo $row['address_patient']?>" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" disabled>
                                                 </div>
                                             </td>
                                         </tr>
-                                        <!-- <tr>
-                                            <td style="border: 0px;color: rgb(72,72,72);">
-                                                Insurance
-                                                <div class="input-group input-group-sm mb-3">
-                                                    <input type="text" class="form-control" value="BPJS/Umum" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" disabled>
-                                                </div>
-                                            </td>
-                                        </tr> -->
                                     </tbody>
                                 </table>
                             </div>
@@ -121,7 +113,7 @@ $address = $row['address_patient'];
 
                                     <tbody style="border: none;">
                                         <tr>
-                                        <p style="text-align: center">Active Booking</p>
+                                        <p style="text-align: center">Pendaftaran Aktif</p>
                                         </tr>
                                         <tr>
                                             <td>
@@ -130,11 +122,11 @@ $address = $row['address_patient'];
                                                         <table class="table table-bordered table-striped">
                                                             <tr>
                                                                 <th>No</th>
-                                                                <th>ID Booking</th>
-                                                                <th>Name</th>
-                                                                <th>Clinic</th>
-                                                                <th>Day</th>
-                                                                <th>Time</th>
+                                                                <th>ID Pendaftaran</th>
+                                                                <th>Nama</th>
+                                                                <th>Poliklinik</th>
+                                                                <th>Hari</th>
+                                                                <th>Waktu</th>
                                                             </tr>
 
                                                             <?php
@@ -186,36 +178,27 @@ $address = $row['address_patient'];
                                         <tr>
                                             <td>
                                                 <center>
-                                                    <!-- <a class="btn btn-light" href="deletebooking.php?id=<?php echo $row['id_booking']?>">Cancel Booking</a> -->
-                                                    <!-- <a class="btn btn-light" data-toggle="modal" data-target="#exampleModalCenter">Cancel Booking</a> -->
-                                                    
                                                     <div class="container">
                                                     <div class="row">
                                                         <div class="col-md-6">
-                                                        <button class="btn btn-light btn-md btn-block" id="btn" data-toggle="modal" data-target="#exampleModalCenter">Cancel Booking</button>
+                                                        <button class="btn btn-light btn-md btn-block" id="btn" data-toggle="modal" data-target="#exampleModalCenter">Batal Pendaftaran</button>
                                                         </div>
-                                                        
-                                                    <!-- Button trigger modal
-                                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-                                                    Launch demo modal
-                                                    </button> -->
 
-                                                    <!-- Modal -->
                                                     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                                         <div class="modal-content">
                                                         <div class="modal-header">
-                                                            <h6 class="modal-title" id="exampleModalLongTitle">Reminder!</h6>
+                                                            <h6 class="modal-title" id="exampleModalLongTitle">Perhatian!</h6>
                                                             <a class="close" data-dismiss="modal" aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
                                                             </button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <h4>Are you sure to delete your booking data?</h4> 
+                                                            <h4>Anda yakin ingin membatalkan pendaftaran?</h4> 
                                                         </div>
                                                         <div class="modal-footer">
-                                                            <a class="btn btn-danger" data-dismiss="modal">Cancel</a>
-                                                            <a class="btn btn-primary" href="deletebooking.php?id=<?php echo $row['id_booking']?>">Yes, delete it!</a>
+                                                            <a class="btn btn-danger" data-dismiss="modal">Tidak</a>
+                                                            <a class="btn btn-primary" href="deletebooking.php?id=<?php echo $row['id_booking']?>">Ya</a>
                                                         </div>
                                                         </div>
                                                     </div>
@@ -226,11 +209,10 @@ $address = $row['address_patient'];
                                                     ?>
                                                     <div class="col-md-4">
                                                         <button class="btn btn-dark btn-md btn-block" type="submit">
-                                                        <a href="cetak.php" style="color: #ffff;">Print Ticket</a>
+                                                        <a href="cetak.php" style="color: #ffff;">Cetak</a>
                                                         </button>
                                                         </div>
                                                     </div>
-                                                    <!-- <a class="btn btn-dark" href="cetak.php">Print Ticket</a> -->
                                                 </center>
                                             </td>
                                         </tr>
@@ -246,9 +228,13 @@ $address = $row['address_patient'];
                                 <div class="row">
                                     <div class="col" style="margin: 10px;">
                                         <h5>Ketentuan Pendaftaran</h5>
-                                        <p style="padding: 0px;margin-bottom: 0px;">- 1 Ketuhanan yang maha esa</p>
-                                        <p style="padding: 0px;margin-bottom: 0px;">- 2&nbsp;</p>
-                                        <p style="padding: 0px;">- 3</p>
+                                        <ul>
+                                            <li>Pasien sudah terdaftar di RSUD BANTUL dan memiliki nomor rekam medis.</li>
+                                            <li>Bagi pasien baru yang belum pernah mendaftar di RSUD Panembahan Senopati harap datang langsung ke CS RSUD Panembahan Senopati</li>
+                                            <li>Apabila Anda telah melakukan pendaftaran Online, Anda akan mendapatkan bukti pendaftaran yang dapat dicetak dan dibawa pada Hari Berobat.</li>
+                                            <li>Untuk kasus Gawat Darurat silakan datang ke IGD RSUD Panembahan Senopati.</li>
+                                            <li>Pasien yang telah melakukan registrasi online diharapkan datang tepat waktu (Minimal 1 jam sebelum jadwal Poli Dokter).</li>
+                                        </ul>
                                     </div>
                                     <div class="col-xl-4 d-xl-flex justify-content-xl-center align-items-xl-center">
                                         <img class="tada animated infinite" src="assets/img/rs%20logo.png" style="width: 92px;" loading="auto">
@@ -268,45 +254,6 @@ $address = $row['address_patient'];
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.js"></script>
     <script src="assets/js/Advanced-NavBar---Multi-dropdown.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-
-    <!-- <script>
-    const btn = document.getElementById('btn');
-    const swalWithBootstrapButtons = Swal.mixin({
-    customClass: {
-        confirmButton: 'btn btn-success',
-        cancelButton: 'btn btn-danger'
-    },
-    buttonsStyling: false
-    })
-    btn.addEventListener('click', function(){
-        swalWithBootstrapButtons.fire({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonText: 'Yes, delete it!',
-        cancelButtonText: 'No, cancel!',
-        reverseButtons: true
-        }).then((result) => {
-        if (result.isConfirmed) {
-            swalWithBootstrapButtons.fire(
-            'Deleted!',
-            'Your file has been deleted.',
-            'success'
-            )
-        } else if (
-            /* Read more about handling dismissals below */
-            result.dismiss === Swal.DismissReason.cancel
-        ) {
-            swalWithBootstrapButtons.fire(
-            'Cancelled',
-            'Your imaginary file is safe :)',
-            'error'
-            )
-        }
-        })
-    });
-    </script> -->
 
 </body>
 </html>

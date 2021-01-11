@@ -53,8 +53,7 @@ $address = $row['address_patient'];
         <div class="container text-left" style="margin: 21px;">
             <div class="row" style="background: #edf6f9;border-style: none;border-radius: 30px;margin: 20px 0 0 0;box-shadow: 20px 40px 7px 3px rgba(33,37,41,0.7);">
                 <div class="col-md-12">
-                    <h4 class="text-center bounce animated" style="margin-top: 20px;">Booking Data Confirmation</h4>
-                    <h5 class="text-center flash animated" style="margin: 10px 0 50px 0;">Registered Patient</h5>
+                    <h4 class="text-center bounce animated" style="margin-top: 20px;">Konfirmasi Data Pendaftaran</h4>
                     <div class="alert alert-warning alert-dismissible fade show" role="alert" style="border-radius: 12px;">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button><span><strong>Perhatian</strong> Pastikan Data yang Anda Inputkan Sudah Benar!</span>
                     </div>
@@ -64,10 +63,10 @@ $address = $row['address_patient'];
                                 <table class="table table-bordered">
                                     <tbody style="border: none;">
                                         <tr>
-                                            <td style="border: 0px;color: rgb(72,72,72);">Name</td>
+                                            <td style="border: 0px;color: rgb(72,72,72);">Nama</td>
                                             <td class="text-right" style="height: 29px;width: 0px;color: rgb(72,72,72);">:</td>
                                             <td><?php echo $name ?></td>
-                                            <td style="color: rgb(72,72,72);">Policlinic</td>
+                                            <td style="color: rgb(72,72,72);">Poliklinik</td>
                                             <td class="text-right" style="color: rgb(72,72,72);">:</td>
                                             <td>
                                                 <?php 
@@ -83,10 +82,10 @@ $address = $row['address_patient'];
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td style="color: rgb(72,72,72);">Medical Number</td>
+                                            <td style="color: rgb(72,72,72);">Nomor Rekam Medis</td>
                                             <td class="text-right" style="color: rgb(72,72,72);">:</td>
                                             <td><?php echo $id ?></td>
-                                            <td style="color: rgb(72,72,72);">Doctor</td>
+                                            <td style="color: rgb(72,72,72);">Dokter</td>
                                             <td class="text-right" style="color: rgb(72,72,72);">:</td>
                                             <td>
                                                 <?php
@@ -106,7 +105,7 @@ $address = $row['address_patient'];
                                             <td style="color: rgb(72,72,72);">NIK</td>
                                             <td class="text-right" style="color: rgb(72,72,72);">:</td>
                                             <td><?php echo $idnum ?></td>
-                                            <td style="color: rgb(72,72,72);">Time</td>
+                                            <td style="color: rgb(72,72,72);">Waktu</td>
                                             <td class="text-right" style="color: rgb(72,72,72);">:</td>
                                             <td>
                                                 <?php
@@ -116,7 +115,6 @@ $address = $row['address_patient'];
                                                    $row = mysqli_fetch_array($resultS);
                                                    $day = $row['day'];
                                                    $start = $row['start'];
-                                                   //$jadwal = $day+$start;
                                                    echo ucfirst($day);
                                                    echo " ";
                                                    echo $start;
@@ -126,25 +124,15 @@ $address = $row['address_patient'];
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td style="color: rgb(72,72,72);">Birth Date</td>
+                                            <td style="color: rgb(72,72,72);">Tanggal Lahir</td>
                                             <td class="text-right" style="color: rgb(72,72,72);">:</td>
                                             <td><?php echo $tgl_lahir ?></td>
                                         </tr>
                                         <tr>
-                                            <td style="color: rgb(72,72,72);">Address</td>
+                                            <td style="color: rgb(72,72,72);">Alamat</td>
                                             <td class="text-right" style="color: rgb(72,72,72);">:</td>
                                             <td><?php echo $address ?></td>
                                         </tr>
-                                        <!-- <tr>
-                                            <td style="color: rgb(72,72,72);">Insurance</td>
-                                            <td class="text-right" style="color: rgb(72,72,72);">:</td>
-                                            <td><?php echo $_POST["insurance"]; ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td style="color: rgb(72,72,72);">Number</td>
-                                            <td class="text-right" style="color: rgb(72,72,72);">:</td>
-                                            <td>-</td>
-                                        </tr> -->
                                     </tbody>
                                 </table>
                             </div>
@@ -168,9 +156,13 @@ $address = $row['address_patient'];
                                         <div class="row">
                                             <div class="col" style="margin: 10px;">
                                                 <h5>Ketentuan Pendaftaran</h5>
-                                                <p style="padding: 0px;margin-bottom: 0px;">- 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                                                <p style="padding: 0px;margin-bottom: 0px;">- 2 Nec sagittis aliquam malesuada bibendum arcu vitae elementum. </p>
-                                                <p style="padding: 0px;">- 3 Enim lobortis scelerisque fermentum dui faucibus in. </p>
+                                                <ul>
+                                                    <li>Pasien sudah terdaftar di RSUD BANTUL dan memiliki nomor rekam medis.</li>
+                                                    <li>Bagi pasien baru yang belum pernah mendaftar di RSUD Panembahan Senopati harap datang langsung ke CS RSUD Panembahan Senopati</li>
+                                                    <li>Apabila Anda telah melakukan pendaftaran Online, Anda akan mendapatkan bukti pendaftaran yang dapat dicetak dan dibawa pada Hari Berobat.</li>
+                                                    <li>Untuk kasus Gawat Darurat silakan datang ke IGD RSUD Panembahan Senopati.</li>
+                                                    <li>Pasien yang telah melakukan registrasi online diharapkan datang tepat waktu (Minimal 1 jam sebelum jadwal Poli Dokter).</li>
+                                                </ul>
                                             </div>
                                             <div class="col-xl-4 d-xl-flex justify-content-xl-center align-items-xl-center">
                                                 <div class="btn-group" role="group"></div><img class="tada animated infinite" src="assets/img/rs%20logo.png" style="width: 92px;" loading="auto"></div>

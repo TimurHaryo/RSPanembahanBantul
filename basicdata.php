@@ -18,7 +18,6 @@ session_start();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.css">
     <link rel="stylesheet" href="assets/css/Navigation-Clean.css">
-    <!-- <link rel="stylesheet" href="assets/css/styles.css"> -->
 </head>
 
 
@@ -43,9 +42,10 @@ session_start();
             <div class="row" style="background: #15dcff;border-style: none;border-radius: 30px;margin: 40px 0 0 0;box-shadow: 20px 40px 7px 3px rgba(33,37,41,0.7);">
             <form action="konfirmasi.php" method="POST">
                 <div class="col-md-12">
-                    <h4 class="text-center bounce animated" style="margin-top: 20px;">Patient Basic Data</h4>
-                    <h5 class="text-center flash animated" style="margin: 10px 0 50px 0;">Registered Patient</h5>
-                    <div class="alert alert-warning" role="alert" data-aos="flip-up" data-aos-delay="50" style="border-radius: 0px;border-top-left-radius: 12px;border-top-right-radius: 12px;"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button><span><strong>Perhatian</strong> Pastikan Data yang Anda Inputkan Sudah Benar!</span></div>
+                    <h4 class="text-center bounce animated" style="margin-top: 20px;">Pendaftaran Pasien</h4>
+
+                    <div class="alert alert-warning" role="alert" data-aos="flip-up" data-aos-delay="50" style="border-radius: 0px;border-top-left-radius: 12px;border-top-right-radius: 12px;"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+
                     <div class="row order-1">
                         <div class="col">
                             <div class="row order-1">
@@ -58,7 +58,7 @@ session_start();
                                                     <td style="border: 0px;color: rgb(72,72,72);">
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
-                                                                <span class="input-group-text" id="inputGroup-sizing-default">Medical Number</span>
+                                                                <span class="input-group-text" id="inputGroup-sizing-default">Nomor Rekam Medis</span>
                                                             </div>
                                                             <?php
                                                             
@@ -72,7 +72,7 @@ session_start();
                                                 <tr>
                                                     <td style="border: 0px;color: rgb(72,72,72);">
                                                         <div class="form-group">
-                                                            <label for="clinic">Clinic Destination</label>
+                                                            <label for="clinic">Poliklinik</label>
                                                             <select class="form-control" id="clinic" name="clinic">
                                                                 <option disabled selected> Pilih </option>
                                                                 <?php
@@ -96,7 +96,7 @@ session_start();
                                                 <tr>
                                                     <td style="border: 0px;color: rgb(72,72,72);">
                                                         <div class="form-group">
-                                                            <label for="doctor">Doctor</label>
+                                                            <label for="doctor">Dokter</label>
                                                             <select class="form-control" id="doctor" name="doctor">
                                                                 <option disabled selected> Pilih Dokter </option>
                                                             </select>
@@ -106,24 +106,13 @@ session_start();
                                                 <tr>
                                                     <td style="border: 0px;color: rgb(72,72,72);">
                                                         <div class="form-group">
-                                                            <label for="sel1">Time</label>
+                                                            <label for="sel1">Waktu</label>
                                                             <select class="form-control" id="scheduleTime" name="time">
                                                                 <option disabled selected> Pilih Waktu </option>
                                                             </select>
                                                         </div>
                                                     </td>
                                                 </tr>
-                                                <!-- <tr>
-                                                    <td style="border: 0px;color: rgb(72,72,72);">
-                                                        <div class="form-group">
-                                                            <label for="sel1">Insurance</label>
-                                                            <select class="form-control" id="sel1" name="insurance" type="hidden">
-                                                                <option>Umum</option>
-                                                                <option>BPJS</option>
-                                                            </select>
-                                                        </div>
-                                                    </td>
-                                                </tr> -->
                                             </tbody>
                                         </table>
                                     </div>
@@ -137,15 +126,15 @@ session_start();
                                                     <td>
                                                         <div class="col-md-12">
                                                             <div class="container">
-                                                                <p style="text-align: center">Doctor Schedule</p>
+                                                                <p style="text-align: center">Jadwal Dokter</p>
                                                                 <div class="table-responsive table-light" style="border-radius: 20px;">
                                                                     <table class="table">
                                                                         <thead>
                                                                             <tr>
                                                                                 <th>No</th>
-                                                                                <th>Name</th>
-                                                                                <th>Day</th>
-                                                                                <th>Time</th>
+                                                                                <th>Nama</th>
+                                                                                <th>Hari</th>
+                                                                                <th>Waktu</th>
                                                                             </tr>
                                                                         </thead>
                                                                         <tbody id="schedule">
@@ -167,9 +156,13 @@ session_start();
                                         <div class="row">
                                             <div class="col" style="margin: 10px;">
                                                 <h5>Ketentuan Pendaftaran</h5>
-                                                <p style="padding: 0px;margin-bottom: 0px;">- Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut eni</p>
-                                                <p style="padding: 0px;margin-bottom: 0px;">- Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in&nbsp;</p>
-                                                <p style="padding: 0px;">- voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                                                <ul>
+                                                    <li>Pasien sudah terdaftar di RSUD BANTUL dan memiliki nomor rekam medis.</li>
+                                                    <li>Bagi pasien baru yang belum pernah mendaftar di RSUD Panembahan Senopati harap datang langsung ke CS RSUD Panembahan Senopati</li>
+                                                    <li>Apabila Anda telah melakukan pendaftaran Online, Anda akan mendapatkan bukti pendaftaran yang dapat dicetak dan dibawa pada Hari Berobat.</li>
+                                                    <li>Untuk kasus Gawat Darurat silakan datang ke IGD RSUD Panembahan Senopati.</li>
+                                                    <li>Pasien yang telah melakukan registrasi online diharapkan datang tepat waktu (Minimal 1 jam sebelum jadwal Poli Dokter).</li>
+                                                </ul>
                                             </div>
                                             <div class="row">
                                                 <div class="col d-flex justify-content-center" style="padding: 80px;">

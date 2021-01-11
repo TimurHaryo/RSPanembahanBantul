@@ -56,8 +56,7 @@ $id_booking = $row['id_booking'];
             
             <div class="row" style="background: #edf6f9;border-radius: 30px;margin: 40px 0 0 0;box-shadow: 19px 36px 8px 9px rgba(33,37,41,0.58);">
                 <div class="col-md-12">
-                    <h4 class="text-center bounce animated" style="padding: 20px 0 0 0;">Booking Tiket</h4>
-                    <h5 class="text-center flash animated">Registered Patient</h5>
+                    <h4 class="text-center bounce animated" style="padding: 20px 0 0 0;">Tiket Pendaftaran</h4>
                     <div class="row">
                         <div class="col">
                             <h4 class="text-center" style="margin: 0;padding: 20px 0 0 0;">Poliklinik</h4>
@@ -91,21 +90,24 @@ $id_booking = $row['id_booking'];
                                             QRcode::png($codeContents, $tempdir.'007_4.png', QR_ECLEVEL_L, 7, 2);
                                             
                                             echo '<img src="'.$tempdir.'007_4.png" />'; 
-                                            //echo '<img src="'.$tempdir.'007_4.png style="width: 300px;background: #ffffff;border-radius: 40px;margin: 0 0 40px 0;/>'; 
                                             
                                         ?>
                                             <div  style="margin: 0px 0px 30px 0px;"></div>
                                             <div class="row">
-                                                <div class="col"><button class="btn btn-light" type="button" style="background: rgb(24,225,255);color:#fff;margin: 0px 0px 50px 0px;width: 88px;height: 39px;"><a href="process_output.php">Print</a></button>
+                                                <div class="col"><button class="btn btn-light" type="button" style="background: rgb(24,225,255);color:#fff;margin: 0px 0px 50px 0px;width: 88px;height: 39px;"><a href="process_output.php">Cetak</a></button>
                                                     <div class="row d-inline" style="border-radius: 0;">
                                                         <div class="col">
                                                             <div class="jumbotron" style="padding: 4px;border-radius: 30px;margin: -30px;">
                                                                 <div class="row">
                                                                     <div class="col text-left" style="margin: 10px;">
                                                                     <h5>Ketentuan Pendaftaran</h5>
-                                                                    <p style="padding: 0px;margin-bottom: 0px;">- Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                                                                    <p style="padding: 0px;margin-bottom: 0px;">- Nec sagittis aliquam malesuada bibendum arcu vitae elementum. </p>
-                                                                    <p style="padding: 0px;">- Enim lobortis scelerisque fermentum dui faucibus in. </p>
+                                                                    <ul>
+                                                                            <li>Pasien sudah terdaftar di RSUD BANTUL dan memiliki nomor rekam medis.</li>
+                                                                            <li>Bagi pasien baru yang belum pernah mendaftar di RSUD Panembahan Senopati harap datang langsung ke CS RSUD Panembahan Senopati</li>
+                                                                            <li>Apabila Anda telah melakukan pendaftaran Online, Anda akan mendapatkan bukti pendaftaran yang dapat dicetak dan dibawa pada Hari Berobat.</li>
+                                                                            <li>Untuk kasus Gawat Darurat silakan datang ke IGD RSUD Panembahan Senopati.</li>
+                                                                            <li>Pasien yang telah melakukan registrasi online diharapkan datang tepat waktu (Minimal 1 jam sebelum jadwal Poli Dokter).</li>
+                                                                        </ul>
                                                                     </div>
                                                                     <div class="col-xl-2 offset-xl-0 d-xl-flex justify-content-xl-center align-items-xl-center"><img class="tada animated infinite" src="assets/img/rs%20logo.png" style="width: 92px;" loading="auto"></div>
                                                                     <div class="col-xl-2 align-self-end"><button class="btn btn-primary" data-toggle="modal" data-target="#logout" type="button" style="background: rgb(24,225,255);border-style: none;color: rgb(0,0,0);font-weight: 600;margin: 12px;">Selesai</button></div>
