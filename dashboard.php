@@ -18,7 +18,8 @@ $address = $row['address_patient'];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Beranda</title>
+    <link rel="icon" href="assets/img/rs%20logo.png">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alatsi">
@@ -174,7 +175,7 @@ $address = $row['address_patient'];
                                                                 <td><?php echo $row['id_booking']//$name?></td>
                                                                 <td><?php echo $row['name_doctor']//$name?></td>
                                                                 <td><?php echo $row['name_clinic']//$clinic?></td>
-                                                                <td><?php echo $row['day']//$day?></td>
+                                                                <td><?php echo ucfirst($row['day'])//$day?></td>
                                                                 <td><?php echo $row['start']/*$start*/ . '-' . $row['end']//$end?></td>
                                                             </tr>
                                                         </table>

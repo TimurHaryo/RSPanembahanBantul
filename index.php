@@ -5,7 +5,7 @@ require 'connection.php';
 
 if (isset($_POST["daftar"]))
 {
-    $admin = "//heil hitler";
+    $admin = ":admin:";
     $norm = $_POST["NoRM"];
     $select_norm = mysqli_query($koneksi->connect, "SELECT * FROM booking WHERE id_patient = '$norm'"); 
     $cek_norm = mysqli_query($koneksi->connect, "SELECT * FROM patient WHERE id_patient = '$norm'");
@@ -40,7 +40,8 @@ if (isset($_POST["daftar"]))
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Untitled</title>
+    <title>Pendaftaran Online RSUD Panembahan Bantul</title>
+    <link rel="icon" href="assets/img/rs%20logo.png">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
     <link rel="stylesheet" href="assets/css/Footer-Basic.css">

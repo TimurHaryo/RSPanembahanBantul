@@ -18,7 +18,7 @@ $address = $row['address_patient'];
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Rumah Sakit 2</title>
+    <title>Daftar Rawat Jalan</title>
     <link rel="icon" href="assets/img/rs%20logo.png">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee">
@@ -117,7 +117,7 @@ $address = $row['address_patient'];
                                                    $day = $row['day'];
                                                    $start = $row['start'];
                                                    //$jadwal = $day+$start;
-                                                   echo $day;
+                                                   echo ucfirst($day);
                                                    echo " ";
                                                    echo $start;
                                                    $_SESSION["print_time"] = $start;
