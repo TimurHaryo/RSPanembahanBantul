@@ -5,7 +5,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Jadwal Dokter</title>
-    <link rel="icon" href="assets/img/rs%20logo.png">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alatsi">
@@ -32,7 +31,7 @@
         <div class="col-md-10" style="background-color: white; width: 1300px; height:800px; margin-top:100px; margin-bottom:100px; padding:24px;">
             <?php include("connection.php"); ?>
             <div class="rows">
-                <h4 style="color:black; text-align:center;">JADWAL PERIKSA </h4>
+                <h4 style="color:black; text-align:center;">JADWAL PERIKSA</h4>
                 <p style="color:black; text-align:center;"><?php echo " \n  " . date(" \n d  M  Y") . " \n  "; ?></p>
 
                 <!-- <span class="input-group-text" id="inputGroup-sizing-default" style="width: 200px; height:35px;">Tanggal : <?php echo " \n  " . date(" \n d  M  Y") . " \n  "; ?></span> -->
@@ -52,17 +51,28 @@
                                     echo "<option value='" . $row['id_clinic'] . "'>Poliklinik " . $row['name_clinic'] . "</option>";
                                 }
                             }
-                            mysqli_close($koneksi->connect);
+                            
                             ?>
                         </select>
                     </div>
                 </div>
 
+
                 <div class=" col d-inline-flex flex-row-reverse" style="margin-right: 30px;">
                     <div class="form-group" style="margin-left: 30px;">
                         <label for="doctor">Dokter</label>
                         <select class="form-control" id="doctor" style="width: 350px; height:35px; border-radius:6px; background: linear-gradient(180deg, #FFFFFF 21.23%, rgba(173, 172, 172, 0) 100%);">
-                            <option disabled selected> Pilih Dokter </option>
+                            <option disabled selected>Pilih Dokter</option>
+                            <?php
+                            $query_get_doctor = "SELECT doctor.id_doctor, doctor.name_doctor FROM doctor ORDER BY name_doctor ASC";
+                            $result_doctor = mysqli_query($koneksi->connect, $query_get_doctor);
+                            if ($result_doctor->num_rows > 0) {
+                                while ($row = mysqli_fetch_assoc($result_doctor)) {
+                                    echo "<option value='" . $row['id_doctor'] . "'> " . $row['name_doctor'] . "</option>";
+                                }
+                            }
+                            mysqli_close($koneksi->connect);
+                            ?>
                         </select>
                     </div>
                 </div>
@@ -70,6 +80,28 @@
             <div class="row" style=" margin-top:70px;">
                 <div class="col-md">
                     <div class="panel panel default">
+                        <div class="panel-heading" style="text-align: center;">
+                            <p>Jadwal Klinik</p>
+                        </div>
+                        <div class="panel-body">
+                            <table class="table table-condensed table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Nama Dokter</th>
+                                        <th>Poliklinik</th>
+                                        <th>Hari Praktek</th>
+                                        <th>Jam Praktek</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="clinicSchedule">
+                                </tbody>
+                            </table>
+                        </div>
+                        <br>
+                        <br>
+                        <hr style="height: 2px; background-color: grey;">
+                        <br>
                         <div class="panel-heading" style="text-align: center;">
                             <p>Jadwal Dokter</p>
                         </div>
@@ -79,11 +111,12 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Nama Dokter</th>
+                                        <th>Poliklinik</th>
                                         <th>Hari Praktek</th>
                                         <th>Jam Praktek</th>
                                     </tr>
                                 </thead>
-                                <tbody id="schedule">
+                                <tbody id="doctorSchedule">
                                 </tbody>
                             </table>
                         </div>
@@ -97,8 +130,8 @@
             </div>
         </div>
     </div>
-    
-    
+
+
 
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
@@ -106,47 +139,33 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.js"></script>
     <script src="assets/js/Advanced-NavBar---Multi-dropdown.js"></script>
     <script src="assets/js/Advanced-NavBar---Multi-dropdown.js"></script>
-    
+
     <script type="text/javascript">
         $('#clinic').on('change', function() {
             var clinic = $(this).val();
-
             $.ajax({
-                url: 'ajaxData.php?action=doctor',
+                url: 'ajaxData.php?action=scheduleClinic',
                 type: 'GET',
                 data: {
                     clinic: clinic
                 },
                 success: function(data) {
-                    $('#doctor').html(data)
+                    $('#clinicSchedule').html(data)
                 }
             })
         });
 
-        $('#clinic').on('change', function() {
-            var clinic = $(this).val();
-            $.ajax({
-                url: 'ajaxData.php?action=schedule',
-                type: 'GET',
-                data: {
-                    clinic: clinic
-                },
-                success: function(data) {
-                    $('#schedule').html(data)
-                }
-            })
-        });
 
         $('#doctor').on('change', function() {
             var doctor = $(this).val();
             $.ajax({
-                url: 'ajaxData.php?action=scheduleTime',
+                url: 'ajaxData.php?action=scheduleDoctor',
                 type: 'GET',
                 data: {
                     doctor: doctor
                 },
                 success: function(data) {
-                    $('#scheduleTime').html(data)
+                    $('#doctorSchedule').html(data)
                 }
             })
         });

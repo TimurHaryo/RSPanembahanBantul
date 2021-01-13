@@ -94,7 +94,7 @@ $id_booking = $row['id_booking'];
                                         ?>
                                             <div  style="margin: 0px 0px 30px 0px;"></div>
                                             <div class="row">
-                                                <div class="col"><button class="btn btn-light" type="button" style="background: rgb(24,225,255);color:#fff;margin: 0px 0px 50px 0px;width: 88px;height: 39px;"><a href="process_output.php">Cetak</a></button>
+                                                <div class="col"><button class="btn btn-light" type="button" style="background: #008080;color:#fff;margin: 0px 0px 50px 0px;width: 88px;height: 39px;"><a href="process_output.php"><font style="color: #FFF;">Cetak</font></a></button>
                                                     <div class="row d-inline" style="border-radius: 0;">
                                                         <div class="col">
                                                             <div class="jumbotron" style="padding: 4px;border-radius: 30px;margin: -30px;">
@@ -110,7 +110,7 @@ $id_booking = $row['id_booking'];
                                                                         </ul>
                                                                     </div>
                                                                     <div class="col-xl-2 offset-xl-0 d-xl-flex justify-content-xl-center align-items-xl-center"><img class="tada animated infinite" src="assets/img/rs%20logo.png" style="width: 92px;" loading="auto"></div>
-                                                                    <div class="col-xl-2 align-self-end"><button class="btn btn-primary" data-toggle="modal" data-target="#logout" type="button" style="background: rgb(24,225,255);border-style: none;color: rgb(0,0,0);font-weight: 600;margin: 12px;">Selesai</button></div>
+                                                                    <div class="col-xl-2 align-self-end"><button class="btn btn-primary" data-toggle="modal" data-target="#logout" type="button" style="background: #008080;border-style: none;color:#fff;font-weight: 600;margin: 12px;">Selesai</button></div>
                                                                 </div>
                                                             </div>
                                                         </div>

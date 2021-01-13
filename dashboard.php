@@ -34,23 +34,16 @@ $address = $row['address_patient'];
 </head>
 <body style="background: url(&quot;assets/img/pat.webp&quot;);">
     <header></header>
-    <nav class="navbar navbar-light navbar-expand-md navigation-clean" style="background: linear-gradient(91deg, rgb(32,242,255) 0%, rgb(0,178,254) 100%), rgb(9,222,235);height: 61px;">
+    <nav class="navbar navbar-light navbar-expand-md navigation-clean" style="background: #008080;height: 61px;">
         <div class="container"><a class="navbar-brand" href="#" style="color: rgb(255,255,255);text-align: center;font-family: Allerta, sans-serif;border-style: none;text-shadow: 2px 0px 3px rgb(2,182,255);"><img class="img-fluid swing animated" src="assets/img/rs%20logo.png" style="width: 30px;margin: 0 10;filter: grayscale(0%);border-style: none;">RSUD Panembahan Senopati</a>
             <button
                 data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-                <!-- <div class="collapse navbar-collapse" id="navcol-1">
-                    <ul class="nav navbar-nav ml-auto">
-                        <li class="nav-item"></li>
-                        <li class="nav-item"></li>
-                        <li class="nav-item"></li>
-                    </ul>
-                </div> -->
         </div>
     </nav>
     <main></main>
     <div class="text-center d-flex d-xl-flex justify-content-center order-1 justify-content-xl-center" style="align-content: center;">
         <div class="container text-left" style="margin: 31px;">
-            <div class="row" style="background: #15dcff;border-style: none;border-radius: 30px;margin: 40px 0 0 0;box-shadow: 20px 40px 7px 3px rgba(33,37,41,0.7);">
+            <div class="row" style="background: #edf6f9;border-style: none;border-radius: 30px;margin: 40px 0 0 0;box-shadow: 20px 40px 7px 3px rgba(33,37,41,0.7);">
                 <div class="col-md-12">
                     <h4 class="text-center bounce animated" style="margin-top: 20px;">Data Pasien</h4>
                     <h5 class="text-center flash animated" style="margin: 10px 0 50px 0;">Pasien Terdaftar</h5>
@@ -118,7 +111,7 @@ $address = $row['address_patient'];
                                         <tr>
                                             <td>
                                                 <div class="col-md-12">
-                                                    <div class="table-responsive table-light" style="border-radius: 20px;">
+                                                    <div class="table-responsive table-light table-bordered" style="border-radius: 20px; border: 0.1px solid grey;">
                                                         <table class="table table-bordered table-striped">
                                                             <tr>
                                                                 <th>No</th>
@@ -146,14 +139,8 @@ $address = $row['address_patient'];
                                                                         WHERE bk.id_patient='{$_SESSION['norm']}'";
 
                                                             $result = mysqli_query($koneksi->connect, $query);
-                                                            // $row = mysqli_fetch_array($result);
                                                             $i = 1;
                                                             while($row = mysqli_fetch_array($result))
-                                                            // $name = $row['name_doctor'];
-                                                            // $clinic = $row['name_clinic'];
-                                                            // $day = $row['day'];
-                                                            // $start = $row['start'];
-                                                            // $end = $row['end'];
                                                             {
                                                             ?>
 
@@ -164,11 +151,11 @@ $address = $row['address_patient'];
                                                                         $i++;
                                                                     ?>
                                                                 </td>
-                                                                <td><?php echo $row['id_booking']//$name?></td>
-                                                                <td><?php echo $row['name_doctor']//$name?></td>
-                                                                <td><?php echo $row['name_clinic']//$clinic?></td>
-                                                                <td><?php echo ucfirst($row['day'])//$day?></td>
-                                                                <td><?php echo $row['start']/*$start*/ . '-' . $row['end']//$end?></td>
+                                                                <td><?php echo $row['id_booking']?></td>
+                                                                <td><?php echo $row['name_doctor']?></td>
+                                                                <td><?php echo $row['name_clinic']?></td>
+                                                                <td><?php echo ucfirst($row['day'])?></td>
+                                                                <td><?php echo $row['start']. '-' . $row['end']//$end?></td>
                                                             </tr>
                                                         </table>
                                                     </div>
@@ -181,14 +168,14 @@ $address = $row['address_patient'];
                                                     <div class="container">
                                                     <div class="row">
                                                         <div class="col-md-6">
-                                                        <button class="btn btn-light btn-md btn-block" id="btn" data-toggle="modal" data-target="#exampleModalCenter">Batal Pendaftaran</button>
+                                                        <button class="btn btn-outline-secondary btn-md btn-block" id="btn" data-toggle="modal" data-target="#exampleModalCenter">Batal Pendaftaran</button>
                                                         </div>
 
                                                     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                                         <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h6 class="modal-title" id="exampleModalLongTitle">Perhatian!</h6>
+                                                        <div class="modal-header" style="background: #008080">
+                                                            <h6 style="color:white" class="modal-title" id="exampleModalLongTitle">Perhatian!</h6>
                                                             <a class="close" data-dismiss="modal" aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
                                                             </button>
@@ -197,8 +184,8 @@ $address = $row['address_patient'];
                                                             <h4>Anda yakin ingin membatalkan pendaftaran?</h4> 
                                                         </div>
                                                         <div class="modal-footer">
-                                                            <a class="btn btn-danger" data-dismiss="modal">Tidak</a>
-                                                            <a class="btn btn-primary" href="deletebooking.php?id=<?php echo $row['id_booking']?>">Ya</a>
+                                                            <a class="btn btn-light" data-dismiss="modal">Tidak</a>
+                                                            <a class="btn btn-primary" style="background: #008080" href="deletebooking.php?id=<?php echo $row['id_booking']?>">Ya</a>
                                                         </div>
                                                         </div>
                                                     </div>
@@ -208,8 +195,8 @@ $address = $row['address_patient'];
                                                     }
                                                     ?>
                                                     <div class="col-md-4">
-                                                        <button class="btn btn-dark btn-md btn-block" type="submit">
-                                                        <a href="cetak.php" style="color: #ffff;">Cetak</a>
+                                                        <button class="btn btn-dark btn-md btn-block type="button" style="background: #008080">
+                                                            <a href="cetak.php" style="color: #ffff;">Cetak</a>
                                                         </button>
                                                         </div>
                                                     </div>

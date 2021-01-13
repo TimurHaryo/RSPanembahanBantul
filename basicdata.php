@@ -23,7 +23,7 @@ session_start();
 
 <body style="background: url(&quot;assets/img/pat.webp&quot;);">
     <header></header>
-    <nav class="navbar navbar-light navbar-expand-md navigation-clean" style="background: linear-gradient(91deg, rgb(32,242,255) 0%, rgb(0,178,254) 100%), rgb(9,222,235);height: 61px;">
+    <nav class="navbar navbar-light navbar-expand-md navigation-clean" style="background: #008080;height: 61px;">
         <div class="container"><a class="navbar-brand" href="#" style="color: rgb(255,255,255);text-align: center;font-family: Allerta, sans-serif;border-style: none;text-shadow: 2px 0px 3px rgb(2,182,255);"><img class="img-fluid swing animated" src="assets/img/rs%20logo.png" style="width: 30px;margin: 0 10;filter: grayscale(0%);border-style: none;">RSUD Panembahan Senopati</a>
             <button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-1">
@@ -39,7 +39,7 @@ session_start();
     <main></main>
     <div class="text-center d-flex d-xl-flex justify-content-center order-1 justify-content-xl-center" style="align-content: center;">
         <div class="container text-left" style="margin: 31px;">
-            <div class="row" style="background: #15dcff;border-style: none;border-radius: 30px;margin: 40px 0 0 0;box-shadow: 20px 40px 7px 3px rgba(33,37,41,0.7);">
+            <div class="row" style="background: #edf6f9;border-style: none;border-radius: 30px;margin: 40px 0 0 0;box-shadow: 20px 40px 7px 3px rgba(33,37,41,0.7);">
             <form action="konfirmasi.php" method="POST">
                 <div class="col-md-12">
                     <h4 class="text-center bounce animated" style="margin-top: 20px;">Pendaftaran Pasien</h4>
@@ -165,7 +165,7 @@ session_start();
                                                 </ul>
                                             </div>
                                             <div class="row">
-                                                <div class="col d-flex justify-content-center" style="padding: 80px;">
+                                                <div class="col d-flex justify-content-center" style="padding: 110px;">
                                                     <div class="btn-group" role="group" style="border-style: none;"><button class="btn btn-primary text-center justify-content-sm-center align-items-sm-end" type="button" style="background: #b9cad6;color: #000000;font-weight: bold;border-style: none;">Kembali</button>
                                                     <!-- <a href="konfirmasi.php"> -->
                                                         <button class="btn btn-primary" type="submit" value="simpan" style="background: #dfe8ee;color: rgb(0,0,0);font-weight: bold;border-style: none;">Lanjutkan</button>
