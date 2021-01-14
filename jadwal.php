@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Jadwal Dokter</title>
+    <title>Doctor Schedule</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alatsi">
@@ -31,7 +31,7 @@
         <div class="col-md-10" style="background-color: white; width: 1300px; height:800px; margin-top:100px; margin-bottom:100px; padding:24px;">
             <?php include("connection.php"); ?>
             <div class="rows">
-                <h4 style="color:black; text-align:center;">JADWAL PERIKSA</h4>
+                <h4 style="color:black; text-align:center;">JADWAL PERIKSA </h4>
                 <p style="color:black; text-align:center;"><?php echo " \n  " . date(" \n d  M  Y") . " \n  "; ?></p>
 
                 <!-- <span class="input-group-text" id="inputGroup-sizing-default" style="width: 200px; height:35px;">Tanggal : <?php echo " \n  " . date(" \n d  M  Y") . " \n  "; ?></span> -->
@@ -100,7 +100,7 @@
                         </div>
                         <br>
                         <br>
-                        <hr style="height: 2px; background-color: grey;">
+                        <!-- <hr style="height: 2px; background-color: grey;">
                         <br>
                         <div class="panel-heading" style="text-align: center;">
                             <p>Jadwal Dokter</p>
@@ -119,7 +119,7 @@
                                 <tbody id="doctorSchedule">
                                 </tbody>
                             </table>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -165,7 +165,7 @@
                     doctor: doctor
                 },
                 success: function(data) {
-                    $('#doctorSchedule').html(data)
+                    $('#clinicSchedule').html(data)
                 }
             })
         });
